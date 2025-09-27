@@ -2,7 +2,7 @@
 My personal portfolio website showcasing my projects, skills, services, and contact details. Built with HTML, CSS, and JavaScript. Hosted on Netlify.
 # Eugene's Personal Portfolio Website 🌍
 
-Welcome to my personal portfolio website! I'm **Awagah Eugene Kwesi**, an aspiring IT student from Ghana. This site showcases who I am, my skills, digital projects, and services I offer — built with love using HTML, CSS, and JavaScript.
+Welcome to my personal portfolio website! I'm **Awagah Eugene Kwesi**, an aspiring IT student from Ghana. This site showcases who I am, my skills, digital projects, and services I offer, built with love using HTML, CSS, and JavaScript.
 
 ## 🌟 Features
 
