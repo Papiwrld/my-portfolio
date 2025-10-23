@@ -8,6 +8,7 @@ const urlsToCache = [
   '/Images/background.jpg',
   '/Images/user.jpg',
   '/Images/Logo.png',
+  '/Images/Papi.jpg',
   '/Images/Work.jpg',
   '/Images/Work 1.png',
   '/Images/Fashion finesse deployed.png',
