@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
   <meta name="description" content="Awagah Eugene Kwesi - Professional Frontend Developer & UI/UX Designer from Ghana. Specializing in responsive web design, modern JavaScript, and user-centered digital solutions. View my portfolio and let's collaborate.">
   <meta name="keywords" content="Frontend Developer, UI/UX Designer, Web Development, JavaScript, React, HTML5, CSS3, Responsive Design, Ghana, Portfolio, Digital Solutions, User Experience">
   <meta name="author" content="Awagah Eugene Kwesi">
@@ -18,25 +18,19 @@
   <meta property="og:description" content="Professional Frontend Developer and UI/UX Designer from Ghana. Creating sleek, responsive websites and digital solutions with modern technologies.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://papiwrld.github.io">
-  <meta property="og:image" content="Images/user.jpg">
+  <meta property="og:image" content="Images/Eugene at the national theatre.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Awagah Eugene Kwesi - Frontend Developer">
   <meta name="twitter:description" content="Professional Frontend Developer & UI/UX Designer from Ghana">
   
   <title>Awagah Eugene Kwesi - Frontend Developer & UI/UX Designer</title>
   
-  <!-- Enhanced Preload Strategy -->
-  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="script.js" as="script">
-  <link rel="preload" href="Images/background.jpg" as="image" type="image/jpeg" fetchpriority="high">
-  <link rel="preload" href="Images/user.jpg" as="image" type="image/jpeg" fetchpriority="high">
-  <link rel="preload" href="Images/Logo.png" as="image" type="image/png" fetchpriority="high">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style" crossorigin>
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <!-- Optimized Preload Strategy -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preload" href="Images/Logo.png" as="image" type="image/png" fetchpriority="high">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style" crossorigin>
   
   <!-- Critical CSS inline for above-the-fold content -->
   <style>
@@ -46,8 +40,8 @@
       --bg-primary: #0a0a0a;
       --text-primary: #ffffff;
       --text-secondary: #b0b0b0;
-      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --font-secondary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
     
     /* Performance optimizations */
@@ -73,27 +67,7 @@
       contain: layout style;
     }
     
-    /* Remove duplicate styles - already defined above */
-    
-    .navbar { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      background: rgba(10, 10, 10, 0.95); 
-      backdrop-filter: blur(10px); 
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-    
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      background: linear-gradient(135deg, var(--bg-primary) 0%, #111111 50%, #1a1a1a 100%);
-      position: relative;
-    }
-    
+    /* Minimal critical CSS - Full styles in style.css */
     .loading-screen { 
       position: fixed; 
       top: 0; 
@@ -108,78 +82,14 @@
       z-index: 9999;
       transition: opacity 0.3s ease;
     }
-    
-    .hero-title { 
-      font-family: var(--font-secondary);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700; 
-      line-height: 1.1; 
-      margin-bottom: 1.5rem; 
-      color: var(--text-primary); 
-      letter-spacing: -0.02em;
-    }
-    
-    .hero-description { 
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--text-secondary); 
-      margin-bottom: 2rem; 
-      line-height: 1.6; 
-      max-width: 600px; 
-    }
-    
-    /* Performance optimizations */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('Images/background.jpg') center/cover;
-      opacity: 0.1;
-      z-index: 1;
-      will-change: transform;
-    }
-    
-    /* Reduce layout shifts */
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .hero-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    
-    @media (max-width: 768px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-      }
-    }
   </style>
   
-  <!-- Stylesheets -->
+  <!-- Stylesheets - Optimized Loading -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="Images/Logo.png">
@@ -201,6 +111,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Eugene Portfolio">
+  
+  <!-- Performance Hints -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
@@ -211,7 +126,7 @@
     "jobTitle": "Frontend Developer & UI/UX Designer",
     "description": "Professional Frontend Developer and UI/UX Designer from Ghana creating sleek, responsive websites and digital solutions",
     "url": "https://papiwrld.github.io",
-    "image": "https://papiwrld.github.io/Images/user.jpg",
+    "image": "https://papiwrld.github.io/Images/Eugene at the national theatre.jpg",
     "sameAs": [
       "https://linkedin.com/in/eugene-awagah-86068a341",
       "https://github.com/Papiwrld",
@@ -243,31 +158,14 @@
   
 </head>
 <body>
-  <!-- Enhanced Skip Navigation for Accessibility -->
-  <a href="#main-content" class="skip-link" tabindex="1">Skip to main content</a>
-  <a href="#navigation" class="skip-link" tabindex="2">Skip to navigation</a>
-  <a href="#contact" class="skip-link" tabindex="3">Skip to contact</a>
-  
   <!-- Screen reader only content -->
   <div class="sr-only">
     <h1>Awagah Eugene Kwesi Portfolio</h1>
     <p>Professional Frontend Developer & UI/UX Designer from Ghana specializing in modern web development, responsive design, and digital solutions.</p>
-    <nav aria-label="Breadcrumb navigation">
-      <ol>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
-    </nav>
   </div>
   
   <!-- Live region for dynamic content updates -->
   <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
-  
-  <!-- Progress indicator for screen readers -->
-  <div id="progress-indicator" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   
   <!-- Portfolio Loader - Enhanced for Accessibility -->
   <div id="portfolio-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
@@ -279,18 +177,6 @@
     <button type="button" class="skip-link" aria-label="Skip loading animation">Click to skip</button>
   </div>
 
-  <!-- Loading skeleton for better perceived performance -->
-  <div id="skeleton-loader" class="skeleton-loader" aria-hidden="true">
-    <div class="skeleton-nav"></div>
-    <div class="skeleton-hero">
-      <div class="skeleton-text skeleton-title"></div>
-      <div class="skeleton-text skeleton-subtitle"></div>
-      <div class="skeleton-buttons">
-        <div class="skeleton-button"></div>
-        <div class="skeleton-button"></div>
-      </div>
-    </div>
-  </div>
   
   <!-- Clean Loading Screen -->
   <div id="loading-screen" class="loading-screen">
@@ -327,15 +213,20 @@
   </div>
 
   <!-- Enhanced Navigation -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation" id="navigation">
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-logo" role="banner">
         <!-- Enhanced Image Logo with better accessibility -->
-        <img src="Images/Logo.png" alt="Eugene's Logo - Professional Frontend Developer" class="logo-img" width="45" height="45">
-        <span class="logo-text" aria-label="Eugene Awagah">Eugene</span>
+        <a href="#home" class="nav-logo-link" aria-label="Go to home">
+          <img src="Images/Logo.png" alt="Eugene's Logo - Professional Frontend Developer" class="logo-img" width="38" height="38">
+          <span class="logo-text" aria-label="Eugene Awagah">Eugene</span>
+        </a>
       </div>
       
       <div class="nav-menu" id="nav-menu" role="menubar">
+        <button class="nav-close" id="nav-close" aria-label="Close navigation menu" tabindex="0">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
         <a href="#home" class="nav-link active" role="menuitem" aria-current="page" tabindex="0">Home</a>
         <a href="#about" class="nav-link" role="menuitem" tabindex="0">About</a>
         <a href="#services" class="nav-link" role="menuitem" tabindex="0">Services</a>
@@ -359,22 +250,15 @@
   <!-- Hero Section -->
   <main id="main-content" role="main">
   <section id="home" class="hero" aria-labelledby="hero-title">
-    <!-- Clean background with subtle elements -->
+    <!-- Dynamic background with animated elements -->
     <div class="hero-bg-elements">
       <div class="bg-shape shape-1"></div>
       <div class="bg-shape shape-2"></div>
+      <div class="bg-shape shape-3"></div>
     </div>
     
     <div class="hero-container">
       <div class="hero-content">
-        <div class="hero-badge glass-card" role="banner" aria-label="Professional role">
-          <div class="badge-icon">
-            <i class="fas fa-code" aria-hidden="true"></i>
-          </div>
-          <span>Frontend Developer & UI/UX Designer</span>
-          <div class="badge-glow"></div>
-        </div>
-        
         <h1 id="hero-title" class="hero-title">
           <span class="greeting">Hello! I'm</span>
           <span class="highlight name-animated">Eugene</span>
@@ -410,11 +294,11 @@
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-target="20">0</span>
+            <span class="stat-number" data-target="5">0</span>
             <span class="stat-label">Projects Completed</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number" data-target="15">0</span>
+            <span class="stat-number" data-target="2">0</span>
             <span class="stat-label">Happy Clients</span>
           </div>
         </div>
@@ -426,14 +310,14 @@
           <div class="service-card glass-card" role="img" aria-label="UI/UX Design services">
             <div class="card-icon">
               <i class="fas fa-palette" aria-hidden="true"></i>
-        </div>
+            </div>
             <span class="card-text">UI/UX Design</span>
-        </div>
+          </div>
           
           <div class="service-card glass-card" role="img" aria-label="Frontend Development services">
             <div class="card-icon">
               <i class="fas fa-code" aria-hidden="true"></i>
-        </div>
+            </div>
             <span class="card-text">Frontend Development</span>
           </div>
           
@@ -472,7 +356,7 @@
                 <span class="stat-label">Years Experience</span>
               </div>
               <div class="stat">
-                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-number" data-target="5">0</span>
                 <span class="stat-label">Projects Completed</span>
               </div>
             </div>
@@ -481,15 +365,19 @@
         
         <div class="about-text">
           <h3>Who I Am</h3>
-          <p>Aspiring Frontend Developer and UI/UX Designer passionate about building sleek, responsive websites and digital solutions. Currently studying BSc. Information Technology at GCTU, I have hands-on experience developing school and business websites, designing chatbot interfaces, and interning as a remote frontend developer. I enjoy combining creativity with technical skills to deliver user-centered, problem-solving solutions.</p>
+          <p>Professional Frontend Developer and UI/UX Designer with hands-on experience building production-ready web applications and digital solutions. Currently pursuing BSc. Information Technology at GCTU while working as a remote frontend developer and UI/UX designer for Glinax. I specialize in creating responsive, accessible, and performant web interfaces, with expertise in translating high-fidelity designs into production-ready code. My experience spans from freelance school websites to complex AI-powered educational platforms, including an AI university guidance assistant that helps Ghanaian students navigate course selection and admission requirements. I always focus on user-centered design and technical excellence to solve real-world problems.</p>
           
           <div class="skills-showcase">
             <div class="skill-tag">HTML5</div>
             <div class="skill-tag">CSS3</div>
             <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">Java</div>
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">AI Tools</div>
+            <div class="skill-tag">React</div>
+            <div class="skill-tag">Figma</div>
+            <div class="skill-tag">GitHub</div>
+            <div class="skill-tag">Responsive Design</div>
+            <div class="skill-tag">UI/UX</div>
+            <div class="skill-tag">Accessibility</div>
+            <div class="skill-tag">Micro-interactions</div>
           </div>
           
           <div class="tab-container">
@@ -511,7 +399,16 @@
             <div class="tab-content active" id="skills">
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name">Web Development</span>
+                  <span class="skill-name">Frontend Development</span>
+                  <span class="skill-level">95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">UI/UX Design</span>
                   <span class="skill-level">90%</span>
                 </div>
                 <div class="skill-bar">
@@ -520,7 +417,16 @@
               </div>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name">AI Automation</span>
+                  <span class="skill-name">Responsive Design</span>
+                  <span class="skill-level">95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Accessibility</span>
                   <span class="skill-level">85%</span>
                 </div>
                 <div class="skill-bar">
@@ -529,11 +435,20 @@
               </div>
               <div class="skill-item">
                 <div class="skill-info">
-                  <span class="skill-name">Digital Products</span>
-                  <span class="skill-level">80%</span>
+                  <span class="skill-name">Cross-Browser Compatibility</span>
+                  <span class="skill-level">90%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-width="80"></div>
+                  <div class="skill-progress" data-width="90"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Performance Optimization</span>
+                  <span class="skill-level">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="85"></div>
                 </div>
               </div>
             </div>
@@ -543,24 +458,54 @@
                 <div class="timeline-item">
                   <div class="timeline-marker"></div>
                   <div class="timeline-content">
-                    <h4>Web Projects</h4>
-                    <p>Fashion blog, Java GUI calculator, and responsive websites</p>
-                    <span class="timeline-date">2023 - Present</span>
+                    <h4>Frontend & UI/UX Designer (Intern — Remote)</h4>
+                    <p class="company">Glinax</p>
+                    <ul class="experience-details">
+                      <li>Interned as a frontend developer and UI/UX designer for the Glinax team (remote)</li>
+                      <li>Designed polished UI flows and high-fidelity mockups for product screens and user journeys</li>
+                      <li>Built interactive frontend components and translated designs into production-ready code</li>
+                    </ul>
+                    <span class="timeline-date">2024 - Present</span>
                   </div>
                 </div>
                 <div class="timeline-item">
                   <div class="timeline-marker"></div>
                   <div class="timeline-content">
-                    <h4>AI Tools</h4>
-                    <p>Workflow automation and content creation tools</p>
-                    <span class="timeline-date">2023 - Present</span>
+                    <h4>Frontend Interface Developer & UI Designer — AI University Assistant</h4>
+                    <p class="company">Glinax</p>
+                    <ul class="experience-details">
+                      <li>Built the frontend interface for an AI-powered university guidance chatbot for Ghanaian students</li>
+                      <li>Designed intuitive UI for course recommendations, cut-off points analysis, and program assessment features</li>
+                      <li>Created conversational UX that helps students gain in-depth knowledge of university courses and admission requirements</li>
+                      <li>Implemented responsive design and accessibility patterns for seamless mobile and desktop experience</li>
+                      <li>Developed interactive components for student assessment and personalized program recommendations</li>
+                    </ul>
+                    <span class="timeline-date">2025</span>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                    <h4>Frontend Developer — Great Dafco SHS (Website)</h4>
+                    <p class="company">Freelance / Contract</p>
+                    <ul class="experience-details">
+                      <li>Built the frontend of the official website for Great Dafco Senior High School</li>
+                      <li>Delivered a responsive, easy-to-navigate site that highlights school info, programs, and contact details</li>
+                      <li>Worked to ensure fast load times and cross-browser compatibility</li>
+                    </ul>
+                    <span class="timeline-date">2025</span>
                   </div>
                 </div>
                 <div class="timeline-item">
                   <div class="timeline-marker"></div>
                   <div class="timeline-content">
                     <h4>Learning & Development</h4>
-                    <p>Java, DSA, Databases, and more at GCTU</p>
+                    <p class="company">GCTU</p>
+                    <ul class="experience-details">
+                      <li>Pursuing BSc Information Technology with focus on web development and software engineering</li>
+                      <li>Studying Java, Data Structures & Algorithms, Databases, and modern web technologies</li>
+                      <li>Building personal projects and contributing to open source initiatives</li>
+                    </ul>
                     <span class="timeline-date">2024 - Present</span>
                   </div>
                 </div>
@@ -732,32 +677,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="ai" data-aos="fade-up" data-aos-delay="100">
-          <div class="portfolio-image">
-            <img src="Images/Work 1.png" alt="Java GUI Calculator Application with clean interface and arithmetic operations" loading="lazy">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="https://github.com/Papiwrld/java-gui-calculator" target="_blank" class="portfolio-link">
-                  <i class="fab fa-github"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('calculator')">
-                  <i class="fas fa-info-circle"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Java Calculator App</h3>
-            <p>A GUI calculator built with Java Swing for arithmetic operations</p>
-            <div class="portfolio-tags">
-              <span class="tag">Java</span>
-              <span class="tag">GUI</span>
-              <span class="tag">Desktop App</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="200">
+        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
           <div class="portfolio-image">
             <img src="Images/Fashion finesse deployed.png" alt="Fashion Finesse E-commerce Website with modern design and AI chatbot integration" loading="lazy">
             <div class="portfolio-overlay">
@@ -782,7 +702,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="app" data-aos="fade-up" data-aos-delay="300">
+        <div class="portfolio-item" data-category="app" data-aos="fade-up" data-aos-delay="200">
           <div class="portfolio-image">
             <img src="Images/Weather App (2).png" alt="Weather Application with real-time forecasts and location-based weather data" loading="lazy">
             <div class="portfolio-overlay">
@@ -807,7 +727,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="400">
+        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="300">
           <div class="portfolio-image">
             <img src="Images/Great Dafco shs.png" alt="Great Dafco SHS Professional Frontend Website with modern design and responsive layout" loading="lazy">
             <div class="portfolio-overlay">
@@ -833,7 +753,7 @@
           </div>
         </div>
         
-        <div class="portfolio-item" data-category="UI/UX" data-aos="fade-up" data-aos-delay="500">
+        <div class="portfolio-item" data-category="UI/UX" data-aos="fade-up" data-aos-delay="400">
           <div class="portfolio-image">
             <div class="prototype-embed">
               <iframe 
@@ -853,6 +773,36 @@
               <span class="tag">Chatbot</span>
               <span class="tag">Education</span>
               <span class="tag">Prototype</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="500">
+          <div class="portfolio-image">
+            <img src="Images/Reciper Finder.png" alt="Recipe Finder - Modern Recipe & Cocktail Finder with multi-API search, dark/light theme, and PWA support" loading="lazy">
+            <div class="portfolio-overlay">
+              <div class="portfolio-links">
+                <a href="https://recipefinds.netlify.app/" target="_blank" class="portfolio-link">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+                <a href="https://github.com/Papiwrld/Recipe-Finder" target="_blank" class="portfolio-link">
+                  <i class="fab fa-github"></i>
+                </a>
+                <button class="portfolio-info" onclick="openProjectModal('recipe-finder')">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Recipe Finder</h3>
+            <p>Modern Recipe & Cocktail Finder built with Next.js and TypeScript. Features multi-API search, dark/light theme, PWA support, and smart filtering</p>
+            <div class="portfolio-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">PWA</span>
+              <span class="tag">API Integration</span>
             </div>
           </div>
         </div>

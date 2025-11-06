@@ -9,7 +9,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://papiwrld.github.io/Images/user.jpg</image:loc>
+      <image:loc>https://papiwrld.github.io/Images/Eugene%20at%20the%20national%20theatre.jpg</image:loc>
       <image:caption>Awagah Eugene Kwesi - Frontend Developer</image:caption>
     </image:image>
     <image:image>
@@ -45,10 +45,6 @@
       <image:caption>Pinterest Affiliate Marketing Work</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://papiwrld.github.io/Images/Work%201.png</image:loc>
-      <image:caption>Java GUI Calculator Application</image:caption>
-    </image:image>
-    <image:image>
       <image:loc>https://papiwrld.github.io/Images/Fashion%20finesse%20deployed.png</image:loc>
       <image:caption>Fashion Finesse E-commerce Website</image:caption>
     </image:image>
@@ -57,8 +53,12 @@
       <image:caption>Weather Application</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://papiwrld.github.io/Images/Great%20Dafco.png</image:loc>
+      <image:loc>https://papiwrld.github.io/Images/Great%20Dafco%20shs.png</image:loc>
       <image:caption>Great Dafco SHS Website</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://papiwrld.github.io/Images/Reciper%20Finder.png</image:loc>
+      <image:caption>Recipe Finder Application</image:caption>
     </image:image>
   </url>
   

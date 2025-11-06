@@ -5,15 +5,13 @@ const urlsToCache = [
   '/index.html',
   '/style.css',
   '/script.js',
-  '/Images/background.jpg',
-  '/Images/user.jpg',
   '/Images/Logo.png',
-  '/Images/Papi.jpg',
   '/Images/Work.jpg',
-  '/Images/Work 1.png',
   '/Images/Fashion finesse deployed.png',
   '/Images/Weather App (2).png',
-  '/Images/Great Dafco.png',
+  '/Images/Great Dafco shs.png',
+  '/Images/Reciper Finder.png',
+  '/Images/Eugene at the national theatre.jpg',
   '/manifest.json'
 ];
 
