@@ -229,8 +229,17 @@ function initializeApp() {
     initializeAnimations();
     initializePortfolio();
     initializeContactForm();
+    initializeDynamicAboutImage();
+    initializeDynamicBackground();
     initializeModals();
     initializeBackToTop();
+    initializeTabs();
+    
+    // Creative enhancements
+    initializeTypingAnimation();
+    initializeScrollProgress();
+    initializeParallaxEffects();
+    initializeSkillTagAnimations();
     
     // Enhanced functionality
     initializeOfflineSupport();
@@ -242,6 +251,43 @@ function initializeApp() {
     initializePerformanceOptimizations();
     
     console.log('✅ Portfolio initialized successfully with enhanced features');
+}
+
+// Rotate about-section portrait on each page load
+function initializeDynamicAboutImage() {
+    const aboutImage = document.querySelector('.about-image img');
+    if (!aboutImage) return;
+
+    const portraits = [
+        {
+            src: 'Images/Eugene at the national theatre.jpg',
+            alt: "Eugene's portrait at the National Theatre"
+        },
+        {
+            src: 'Images/Eugene in flared Jeans.jpg',
+            alt: 'Eugene in flared jeans outdoors'
+        },
+        {
+            src: 'Images/Mirror Selfie.jpg',
+            alt: 'Eugene taking a mirror selfie'
+        }
+    ];
+
+    const randomPortrait = portraits[Math.floor(Math.random() * portraits.length)];
+    aboutImage.src = randomPortrait.src;
+    aboutImage.alt = randomPortrait.alt;
+}
+
+// Rotate blurred body background image on each page load
+function initializeDynamicBackground() {
+    const backgroundImages = [
+        'Images/Eugene at the national theatre.jpg',
+        'Images/Eugene in flared Jeans.jpg',
+        'Images/Mirror Selfie.jpg'
+    ];
+
+    const chosenImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+    document.documentElement.style.setProperty('--dynamic-bg-image', `url('${chosenImage}')`);
 }
 
 // Clean Loading Screen Management
@@ -517,6 +563,9 @@ function initializeAnimations() {
     
     // Initialize AOS-like animations
     initializeScrollAnimations();
+
+    // Micro-interactions
+    initializeTiltCards();
 }
 
 // Animate counters
@@ -593,6 +642,52 @@ function initializeScrollAnimations() {
     
     animatedElements.forEach(element => {
         animationObserver.observe(element);
+    });
+}
+
+// Lightweight tilt interaction for feature cards (skips touch devices)
+function initializeTiltCards() {
+    if (!window.matchMedia('(pointer: fine)').matches) {
+        return;
+    }
+    const tiltCards = document.querySelectorAll('.tilt-card');
+    if (!tiltCards.length) return;
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const resetCard = (card) => {
+        card.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg) scale(1)';
+        card.classList.remove('is-interacting');
+    };
+    tiltCards.forEach(card => {
+        let rafId = null;
+        const handlePointerMove = (event) => {
+            if (event.pointerType !== 'mouse') return;
+            const rect = card.getBoundingClientRect();
+            const relativeX = event.clientX - rect.left;
+            const relativeY = event.clientY - rect.top;
+            const rotateY = clamp(((relativeX / rect.width) - 0.5) * 18, -14, 14);
+            const rotateX = clamp(((relativeY / rect.height) - 0.5) * -18, -14, 14);
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                card.style.transform = `perspective(1100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.classList.add('is-interacting');
+        };
+        const handlePointerLeave = () => {
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+            }
+            resetCard(card);
+        };
+        card.addEventListener('pointermove', handlePointerMove);
+        card.addEventListener('pointerleave', handlePointerLeave);
+        card.addEventListener('pointerup', handlePointerLeave);
+        card.addEventListener('blur', handlePointerLeave);
+    });
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            tiltCards.forEach(resetCard);
+        }
     });
 }
 
@@ -674,29 +769,48 @@ function initializeContactForm() {
         const messageField = contactForm.querySelector('#message');
         if (messageField) {
             const maxLength = 1000;
+            const charCountElement = document.getElementById('message-count');
+            const charCountContainer = messageField.parentNode.querySelector('.char-count');
+            
             const updateCharCount = () => {
-                const remaining = maxLength - messageField.value.length;
-                const charCountElement = document.getElementById('char-count') || createCharCountElement();
-                charCountElement.textContent = `${remaining} characters remaining`;
-                charCountElement.style.color = remaining < 100 ? 'var(--error-color)' : 'var(--text-secondary)';
+                const currentLength = messageField.value.length;
+                const remaining = maxLength - currentLength;
+                
+                if (charCountElement) {
+                    charCountElement.textContent = currentLength;
+                    
+                    // Update styling based on remaining characters
+                    if (remaining < 0) {
+                        charCountContainer?.classList.add('error');
+                        messageField.setCustomValidity('Message exceeds maximum length');
+                    } else if (remaining < 100) {
+                        charCountContainer?.classList.add('warning');
+                        charCountContainer?.classList.remove('error');
+                        messageField.setCustomValidity('');
+                    } else {
+                        charCountContainer?.classList.remove('error', 'warning');
+                        messageField.setCustomValidity('');
+                    }
+                }
             };
             
             messageField.addEventListener('input', updateCharCount);
-            updateCharCount();
+            messageField.addEventListener('paste', () => setTimeout(updateCharCount, 0));
+            updateCharCount(); // Initialize on load
         }
     }
 }
 
-// Create character count element
-function createCharCountElement() {
-    const charCount = document.createElement('div');
-    charCount.id = 'char-count';
-    charCount.className = 'char-count';
-    charCount.style.cssText = 'font-size: 0.8rem; margin-top: 0.5rem; color: var(--text-secondary);';
+// Enhanced modal accessibility - ensures ARIA attributes are properly managed
+function enhanceModalAccessibility() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
     
-    const messageField = document.getElementById('message');
-    messageField.parentNode.appendChild(charCount);
-    return charCount;
+    // Ensure modal starts with proper ARIA state
+    modal.setAttribute('aria-hidden', 'true');
+    
+    // The openProjectModal and closeProjectModal functions already handle ARIA attributes
+    // This function serves as a safety check and initialization
 }
 
 // Handle form submission with enhanced security and UX
@@ -910,36 +1024,50 @@ function openProjectModal(projectId) {
     if (modal && modalContent) {
         const projectData = getProjectData(projectId);
         
+        // Sanitize project data to prevent XSS
+        const sanitize = (str) => {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        };
+        
         modalContent.innerHTML = `
             <div class="project-modal-content">
                 <div class="project-image">
-                    <img src="${projectData.image}" alt="${projectData.title}">
+                    <img src="${sanitize(projectData.image)}" alt="${sanitize(projectData.title)}" loading="lazy">
                 </div>
                 <div class="project-details">
-                    <h2>${projectData.title}</h2>
-                    <p>${projectData.description}</p>
+                    <h2 id="modal-title">${sanitize(projectData.title)}</h2>
+                    <p>${sanitize(projectData.description)}</p>
                     <div class="project-tech">
                         <h4>Technologies Used</h4>
                         <div class="tech-tags">
-                            ${projectData.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                            ${projectData.technologies.map(tech => `<span class="tech-tag">${sanitize(tech)}</span>`).join('')}
                         </div>
                     </div>
                     <div class="project-features">
                         <h4>Key Features</h4>
                         <ul>
-                            ${projectData.features.map(feature => `<li>${feature}</li>`).join('')}
+                            ${projectData.features.map(feature => `<li>${sanitize(feature)}</li>`).join('')}
                         </ul>
                     </div>
                 </div>
             </div>
         `;
         
+        // Update ARIA attributes for accessibility
+        modal.setAttribute('aria-hidden', 'false');
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
         
         // Focus management for accessibility
-        const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (firstFocusable) firstFocusable.focus();
+        const closeButton = modal.querySelector('.close-modal');
+        if (closeButton) {
+            closeButton.focus();
+        } else {
+            const firstFocusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (firstFocusable) firstFocusable.focus();
+        }
     }
 }
 
@@ -947,8 +1075,16 @@ function openProjectModal(projectId) {
 function closeProjectModal() {
     const modal = document.getElementById('project-modal');
     if (modal) {
+        // Update ARIA attributes for accessibility
+        modal.setAttribute('aria-hidden', 'true');
         modal.classList.remove('show');
         document.body.style.overflow = '';
+        
+        // Return focus to the element that opened the modal
+        const activeElement = document.activeElement;
+        if (activeElement && activeElement.classList.contains('portfolio-info')) {
+            activeElement.blur();
+        }
     }
 }
 
@@ -1240,11 +1376,6 @@ function initializeTabs() {
         });
     });
 }
-
-// Initialize tabs when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    initializeTabs();
-});
 
 // Enhanced Keyboard Navigation Support
 document.addEventListener('keydown', function(e) {
@@ -1618,6 +1749,137 @@ function initializeErrorHandling() {
 
 // Initialize error handling
 initializeErrorHandling();
+
+// ============================================
+// CREATIVE ENHANCEMENTS
+// ============================================
+
+// Typing animation for hero name with multiple variations
+function initializeTypingAnimation() {
+    const typingElement = document.getElementById('typing-name');
+    if (!typingElement) return;
+    
+    const texts = ['Eugene', 'Developer', 'Designer', 'Creator'];
+    let textIndex = 0;
+    let currentIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deleteSpeed = 50;
+    const pauseTime = 2000;
+    
+    function type() {
+        const currentText = texts[textIndex];
+        
+        if (!isDeleting && currentIndex < currentText.length) {
+            typingElement.textContent = currentText.substring(0, currentIndex + 1);
+            currentIndex++;
+            setTimeout(type, typingSpeed);
+        } else if (!isDeleting && currentIndex === currentText.length) {
+            setTimeout(() => {
+                isDeleting = true;
+                type();
+            }, pauseTime);
+        } else if (isDeleting && currentIndex > 0) {
+            typingElement.textContent = currentText.substring(0, currentIndex - 1);
+            currentIndex--;
+            setTimeout(type, deleteSpeed);
+        } else {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            if (textIndex === 0) {
+                // After cycling through, keep "Eugene" permanently
+                typingElement.textContent = 'Eugene';
+                return;
+            }
+            setTimeout(type, typingSpeed);
+        }
+    }
+    
+    // Start typing animation after a delay
+    setTimeout(() => {
+        typingElement.textContent = '';
+        type();
+    }, 1500);
+}
+
+// Scroll progress indicator
+function initializeScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+    
+    const progressBarFill = progressBar.querySelector('.scroll-progress-bar');
+    if (!progressBarFill) return;
+    
+    function updateScrollProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollableHeight = documentHeight - windowHeight;
+        const progress = (scrollTop / scrollableHeight) * 100;
+        
+        progressBarFill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+        progressBar.setAttribute('aria-valuenow', Math.round(progress));
+    }
+    
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress(); // Initial update
+}
+
+// Subtle parallax effects for hero background
+function initializeParallaxEffects() {
+    const heroBgElements = document.querySelectorAll('.bg-shape');
+    if (!heroBgElements.length) return;
+    
+    let ticking = false;
+    
+    function updateParallax() {
+        const scrollY = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        heroBgElements.forEach((element, index) => {
+            const speed = 0.3 + (index * 0.1);
+            const yPos = -(scrollY * speed);
+            const opacity = Math.max(0, 1 - (scrollY / windowHeight));
+            
+            element.style.transform = `translateY(${yPos}px)`;
+            element.style.opacity = opacity;
+        });
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+}
+
+// Animate skill tags with stagger effect
+function initializeSkillTagAnimations() {
+    const skillTags = document.querySelectorAll('.skill-tag');
+    if (!skillTags.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }, index * 50);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    skillTags.forEach(tag => {
+        tag.style.opacity = '0';
+        tag.style.transform = 'translateY(20px) scale(0.9)';
+        tag.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        observer.observe(tag);
+    });
+}
 
 // Export functions for global access
 window.openProjectModal = openProjectModal;
