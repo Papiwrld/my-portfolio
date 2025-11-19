@@ -1,466 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <meta name="description" content="Awagah Eugene Kwesi - Professional Frontend Developer & UI/UX Designer from Ghana. Specializing in responsive web design, modern JavaScript, and user-centered digital solutions. View my portfolio and let's collaborate.">
-  <meta name="keywords" content="Frontend Developer, UI/UX Designer, Web Development, JavaScript, React, HTML5, CSS3, Responsive Design, Ghana, Portfolio, Digital Solutions, User Experience">
-  <meta name="author" content="Awagah Eugene Kwesi">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-  <meta name="bingbot" content="index, follow">
-  <meta name="theme-color" content="#00bcd4">
-  <meta name="msapplication-TileColor" content="#00bcd4">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Eugene Portfolio">
-  <meta property="og:title" content="Awagah Eugene Kwesi - Frontend Developer & UI/UX Designer">
-  <meta property="og:description" content="Professional Frontend Developer and UI/UX Designer from Ghana. Creating sleek, responsive websites and digital solutions with modern technologies.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Awagah Eugene Kwesi - Creative Developer</title>
+  <meta name="description"
+    content="Awagah Eugene Kwesi is a Ghana-based frontend developer & UI/UX designer crafting immersive digital experiences with modern web technologies.">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://papiwrld.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://papiwrld.github.io">
-  <meta property="og:image" content="https://papiwrld.github.io/Images/Eugene at the national theatre.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Awagah Eugene Kwesi - Frontend Developer & UI/UX Designer">
+  <meta property="og:title" content="Awagah Eugene Kwesi - Creative Developer">
+  <meta property="og:description"
+    content="Frontend developer & UI/UX designer from Ghana crafting digital realities with polish and performance.">
+  <meta property="og:url" content="https://papiwrld.github.io/">
+  <meta property="og:image" content="https://papiwrld.github.io/Images/Eugene%20at%20the%20national%20theatre.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Awagah Eugene Kwesi - Frontend Developer">
-  <meta name="twitter:description" content="Professional Frontend Developer & UI/UX Designer from Ghana">
-  <meta name="twitter:image" content="https://papiwrld.github.io/Images/Eugene at the national theatre.jpg">
-  <meta name="twitter:image:alt" content="Awagah Eugene Kwesi - Frontend Developer & UI/UX Designer">
-  
-  <title>Awagah Eugene Kwesi - Frontend Developer & UI/UX Designer</title>
-  
-  <!-- Optimized Preload Strategy -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <meta name="twitter:title" content="Awagah Eugene Kwesi - Creative Developer">
+  <meta name="twitter:description"
+    content="Portfolio website by Awagah Eugene Kwesi featuring interactive work and services.">
+  <meta name="twitter:image" content="https://papiwrld.github.io/Images/Eugene%20at%20the%20national%20theatre.jpg">
+  <link rel="icon" type="image/png" href="Images/Logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="preload" href="Images/Logo.png" as="image" type="image/png" fetchpriority="high" crossorigin="anonymous">
-  <link rel="preload" href="Images/Eugene at the national theatre.jpg" as="image" type="image/jpeg" fetchpriority="high">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" as="style" crossorigin>
-  
-  <!-- Critical CSS inline for above-the-fold content -->
-  <style>
-    /* Critical CSS for initial render - Optimized for performance */
-    :root {
-      --primary-color: #00bcd4;
-      --bg-primary: #0a0a0a;
-      --text-primary: #ffffff;
-      --text-secondary: #b0b0b0;
-      --font-primary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --font-secondary: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-    
-    /* Performance optimizations */
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-      text-rendering: optimizeLegibility;
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-primary);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-      contain: layout style;
-    }
-    
-    /* Minimal critical CSS - Full styles in style.css */
-    .loading-screen { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 100%; 
-      background: var(--bg-primary); 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      z-index: 9999;
-      transition: opacity 0.3s ease;
-    }
-  </style>
-  
-  <!-- Stylesheets - Optimized Loading -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="Images/Logo.png">
-  <link rel="apple-touch-icon" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="Images/Logo.png">
-  <link rel="apple-touch-icon" sizes="57x57" href="Images/Logo.png">
-  
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
-  
-  <!-- Apple Meta Tags (consolidated - removed duplicates) -->
-  
-  <!-- Performance Hints -->
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Awagah Eugene Kwesi",
-    "jobTitle": "Frontend Developer & UI/UX Designer",
-    "description": "Professional Frontend Developer and UI/UX Designer from Ghana creating sleek, responsive websites and digital solutions",
-    "url": "https://papiwrld.github.io",
-    "image": "https://papiwrld.github.io/Images/Eugene at the national theatre.jpg",
-    "sameAs": [
-      "https://linkedin.com/in/eugene-awagah-86068a341",
-      "https://github.com/Papiwrld",
-      "https://instagram.com/papiwrld_",
-      "https://x.com/papiwrld_"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Ghana"
-    },
-    "email": "kwesieugene77@gmail.com",
-    "telephone": "+233537270014",
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Ghana Communication Technology University"
-    },
-    "knowsAbout": [
-      "Web Development",
-      "AI Automation",
-      "Digital Marketing",
-      "Java Programming",
-      "Python",
-      "JavaScript",
-      "HTML5",
-      "CSS3"
-    ]
-  }
-  </script>
-  
 </head>
-<body>
-  <!-- Screen reader only content -->
-  <div class="sr-only">
-    <h1>Awagah Eugene Kwesi Portfolio</h1>
-    <p>Professional Frontend Developer & UI/UX Designer from Ghana specializing in modern web development, responsive design, and digital solutions.</p>
-  </div>
-  
-  <!-- Live region for dynamic content updates -->
-  <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true" role="status"></div>
-  
-  <!-- Portfolio Loader - Enhanced for Accessibility -->
-  <div id="portfolio-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
-    <div class="loader-glow" aria-hidden="true"></div>
-    <div class="loader-orbit" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <h1>Kwesi</h1>
-    <p>Curating Innovation</p>
-    <div class="loading-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Loading progress">
-      <div class="loading-fill"></div>
-    </div>
-    <button type="button" class="skip-link" aria-label="Skip loading animation">Click to skip</button>
-    <div class="loader-tip" aria-hidden="true">Tap space or click skip to jump ahead</div>
-  </div>
 
-  
-  <!-- Clean Loading Screen -->
-  <div id="loading-screen" class="loading-screen">
-    <div class="loading-container">
-      <!-- Clean background with subtle gradient -->
-      <div class="loading-bg"></div>
-      
-      <!-- Main loading content -->
-      <div class="loading-content">
-        <!-- Logo with clean animation -->
-          <div class="loading-logo">
-          <img src="Images/Logo.png" alt="Eugene's Logo" class="logo-spin" width="80" height="80" loading="eager">
-  </div>
+<body class="dark-theme">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-        <!-- Name and title with clean typography -->
-        <div class="loading-text">
-          <h1 class="loading-name">
-            <span class="name-part">Awagah Eugene Kwesi</span>
-          </h1>
-          <p class="loading-title">
-            Frontend Developer & UI/UX Designer
-          </p>
-        </div>
-        
-        <!-- Clean progress indicator -->
-        <div class="loading-progress">
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-          <div class="progress-text">Loading Portfolio</div>
-        </div>
-      </div>
+  <!-- Shadow Fighter Preloader -->
+  <div class="preloader" id="preloader">
+    <!-- Stage Background -->
+    <div class="stage-background"></div>
+
+    <!-- Spotlight -->
+    <div class="spotlight-effect"></div>
+
+    <!-- Shadow Fighter SVG -->
+    <svg class="shadow-fighter" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Head -->
+      <circle class="fighter-head" cx="100" cy="40" r="18" />
+
+      <!-- Body -->
+      <rect class="fighter-body" x="88" y="58" width="24" height="50" rx="4" />
+
+      <!-- Left Arm -->
+      <g class="arm-left">
+        <rect x="82" y="65" width="8" height="45" rx="4" />
+      </g>
+
+      <!-- Right Arm (holding bag) -->
+      <g class="arm-right">
+        <rect x="110" y="65" width="8" height="45" rx="4" />
+      </g>
+
+      <!-- Portfolio Bag -->
+      <g class="portfolio-bag">
+        <rect x="115" y="95" width="22" height="18" rx="2" />
+        <line x1="120" y1="95" x2="132" y2="95" stroke-width="2" />
+      </g>
+
+      <!-- Left Leg -->
+      <g class="leg-left">
+        <rect x="90" y="108" width="10" height="55" rx="5" />
+      </g>
+
+      <!-- Right Leg -->
+      <g class="leg-right">
+        <rect x="100" y="108" width="10" height="55" rx="5" />
+      </g>
+    </svg>
+
+    <!-- Loading Text -->
+    <div class="preloader-text">
+      <h1 class="preloader-title">Eugene Awagah</h1>
+      <p class="preloader-subtitle">Loading Portfolio...</p>
     </div>
   </div>
 
-  <!-- Enhanced Navigation -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
+
+  <!-- Living Background -->
+  <div class="aura-background">
+    <div class="aura-orb orb-1"></div>
+    <div class="aura-orb orb-2"></div>
+    <div class="aura-orb orb-3"></div>
+  </div>
+  <div class="noise-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="Primary">
     <div class="nav-container">
-      <div class="nav-logo" role="banner">
-        <!-- Enhanced Image Logo with better accessibility -->
-        <a href="#home" class="nav-logo-link" aria-label="Go to home">
-          <img src="Images/Logo.png" alt="Eugene's Logo - Professional Frontend Developer" class="logo-img" width="38" height="38" loading="eager" fetchpriority="high">
-          <span class="logo-text" aria-label="Eugene Awagah">Eugene</span>
-        </a>
+      <a href="#home" class="nav-logo" aria-label="Eugene - Home">
+        <span class="logo-text">Eugene<span class="highlight">.</span></span>
+      </a>
+      <div class="nav-menu" id="nav-menu" role="menu">
+        <a href="#home" class="nav-link" aria-label="Navigate to home">Home</a>
+        <a href="#about" class="nav-link" aria-label="Navigate to about section">About</a>
+        <a href="#services" class="nav-link" aria-label="Navigate to services">Services</a>
+        <a href="#portfolio" class="nav-link" aria-label="Navigate to work">Work</a>
+        <a href="#contact" class="nav-link btn-contact" aria-label="Navigate to contact">Let's Talk</a>
+        <div class="nav-badge">Based in Ghana</div>
       </div>
-      
-      <div class="nav-menu" id="nav-menu" role="menubar">
-        <button class="nav-close" id="nav-close" aria-label="Close navigation menu" tabindex="0">
-          <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-        <a href="#home" class="nav-link active" role="menuitem" aria-current="page" tabindex="0">Home</a>
-        <a href="#about" class="nav-link" role="menuitem" tabindex="0">About</a>
-        <a href="#services" class="nav-link" role="menuitem" tabindex="0">Services</a>
-        <a href="#portfolio" class="nav-link" role="menuitem" tabindex="0">Portfolio</a>
-        <a href="#contact" class="nav-link" role="menuitem" tabindex="0">Contact</a>
-      </div>
-      
-      <div class="nav-controls" role="toolbar" aria-label="Navigation controls">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" tabindex="0">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-          <span class="sr-only">Switch to light mode</span>
-        </button>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" tabindex="0">
-          <span class="hamburger" aria-hidden="true"></span>
-          <span class="sr-only">Open navigation menu</span>
-        </button>
-      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="nav-menu" type="button">
+        <span class="hamburger"></span>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <main id="main-content" role="main">
-  <section id="home" class="hero" aria-labelledby="hero-title">
-    <!-- Dynamic background with animated elements -->
-    <div class="hero-bg-elements">
-      <div class="bg-shape shape-1"></div>
-      <div class="bg-shape shape-2"></div>
-      <div class="bg-shape shape-3"></div>
-    </div>
-    
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-intro">
-          <h1 id="hero-title" class="hero-title">
-            <span class="greeting">Hello! I'm</span>
-            <span class="highlight name-animated" id="typing-name">Eugene</span>
-            <span class="subtitle">a professional developer from Ghana</span>
-          </h1>
-          
-          <div class="hero-pill" role="status">
-            <div class="pill-card primary-card">
-              <span class="pill-dot" aria-hidden="true"></span>
-              <span class="pill-text">Currently crafting immersive web experiences</span>
-            </div>
-            <div class="pill-card secondary-card">
-              <span class="pill-dot" aria-hidden="true"></span>
-              <span class="pill-text">Available for freelance collaborations</span>
-            </div>
-          </div>
-          
-          <p class="hero-description fade-in-text">
-            I create sleek, responsive websites and digital solutions that deliver exceptional user experiences. 
-            Combining modern technologies with thoughtful design to solve real-world problems.
-          </p>
-          
-          <ul class="hero-tags" aria-label="Core capabilities">
-            <li class="tag-animate">Web Experiences</li>
-            <li class="tag-animate">Design Systems</li>
-            <li class="tag-animate">AI Interfaces</li>
-          </ul>
-        </div>
-        
-        <div class="hero-actions" role="group" aria-label="Primary actions">
-          <a href="#portfolio" class="btn btn-primary modern-btn" role="button" aria-label="View my portfolio projects">
-            <span class="btn-content">
-              <i class="fas fa-eye" aria-hidden="true"></i>
-              <span>View Portfolio</span>
-            </span>
-            <div class="btn-bg"></div>
-          </a>
-          <a href="#contact" class="btn btn-secondary modern-btn" role="button" aria-label="Get in touch to collaborate">
-            <span class="btn-content">
-              <i class="fas fa-paper-plane" aria-hidden="true"></i>
-              <span>Let's Collaborate</span>
-            </span>
-            <div class="btn-bg"></div>
-          </a>
-        </div>
-        <div class="hero-support" aria-label="Recent highlights">
-          <div class="hero-meta-grid">
-            <article class="hero-meta-card tilt-card">
-              <small>Latest launch</small>
-              <p>AI University Assistant</p>
-              <span>Guiding 120+ students</span>
-            </article>
-            <article class="hero-meta-card tilt-card">
-              <small>Response time</small>
-              <p>&lt; 1 business day</p>
-              <span>For new project inquiries</span>
-            </article>
-          </div>
-          
-          <!-- Social proof stats -->
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number" data-target="3">0</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-target="5">0</span>
-              <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" data-target="2">0</span>
-              <span class="stat-label">Happy Clients</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="hero-visual" aria-hidden="true">
-        <!-- Clean service cards with better spacing -->
-        <div class="service-grid">
-          <div class="service-card glass-card tilt-card" role="img" aria-label="UI/UX Design services">
-            <div class="card-icon">
-              <i class="fas fa-palette" aria-hidden="true"></i>
-            </div>
-            <span class="card-text">UI/UX Design</span>
-          </div>
-          
-          <div class="service-card glass-card tilt-card" role="img" aria-label="Frontend Development services">
-            <div class="card-icon">
-              <i class="fas fa-code" aria-hidden="true"></i>
-            </div>
-            <span class="card-text">Frontend Development</span>
-          </div>
-          
-          <div class="service-card glass-card tilt-card" role="img" aria-label="Responsive Design services">
-            <div class="card-icon">
-              <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-            </div>
-            <span class="card-text">Responsive Design</span>
-          </div>
-        </div>
-        
-        <div class="hero-visual-card tilt-card" role="img" aria-label="Live project status">
-          <div class="status-chip">
-            <span class="status-dot"></span>
-            <span>Live build</span>
-          </div>
-          <h3>AI University Assistant</h3>
-          <p>Conversational guidance for Ghanaian students choosing the right program.</p>
-          <div class="mini-progress" aria-label="Project progress">
-            <span style="width: 82%"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="scroll-indicator modern-scroll" aria-label="Scroll down to explore more content">
-      <div class="scroll-arrow" aria-hidden="true"></div>
-      <span>Scroll to explore</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Get to know me better</p>
+  <main id="main">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">Based in Ghana</div>
+          <h1 class="hero-title">
+            Frontend Developer <span class="text-gradient">&amp;</span> UI Designer
+          </h1>
+          <p class="hero-desc">
+            I am Awagah Eugene Kwesi. A Frontend Developer & UI/UX Designer blending technical precision with artistic
+            fluidity.
+          </p>
+          <div class="hero-btns">
+            <a href="#portfolio" class="btn btn-primary magnetic" data-strength="50">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-ghost magnetic" data-strength="50">
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
       </div>
-      
-      <div class="about-content">
-        <div class="about-image">
-          <img src="Images/Eugene at the national theatre.jpg" alt="Eugene Awagah - Professional Frontend Developer and UI/UX Designer from Ghana" loading="lazy" width="500" height="600">
-          <div class="image-overlay">
-            <div class="stats">
-              <div class="stat">
-                <span class="stat-number" data-target="3">0</span>
-                <span class="stat-label">Years Experience</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number" data-target="5">0</span>
-                <span class="stat-label">Projects Completed</span>
-              </div>
+
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="grid-about">
+          <div class="about-visual tilt-card" data-tilt>
+            <div class="glass-panel">
+              <img src="Images/Eugene at the national theatre.jpg" alt="Portrait of Eugene Awagah" class="profile-img"
+                loading="lazy">
+              <div class="floating-badge badge-1">Developer</div>
+              <div class="floating-badge badge-2">Designer</div>
+            </div>
+          </div>
+          <div class="about-info">
+            <h2 class="section-title">Who <span class="highlight">I Am</span></h2>
+            <p class="lead">Professional Frontend Developer and UI/UX Designer.</p>
+            <p>I specialize in creating responsive, accessible, and performant web interfaces, with expertise in
+              translating high-fidelity designs into production-ready code. My experience spans from freelance school
+              websites to complex AI-powered educational platforms.</p>
+            <p>Currently pursuing BSc. Information Technology at GCTU while working as a remote frontend developer and
+              UI/UX designer for Glinax.</p>
+
+            <div class="tech-stack">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Next.js</span>
+              <span>Figma</span>
+              <span>GSAP</span>
+              <span>Node.js</span>
             </div>
           </div>
         </div>
-        
-        <div class="about-text">
-          <h3>Who I Am</h3>
-          <p>Professional Frontend Developer and UI/UX Designer with hands-on experience building production-ready web applications and digital solutions. Currently pursuing BSc. Information Technology at GCTU while working as a remote frontend developer and UI/UX designer for Glinax.</p>
-          <p>I specialize in creating responsive, accessible, and performant web interfaces, with expertise in translating high-fidelity designs into production-ready code. My experience spans from freelance school websites to complex AI-powered educational platforms, including an AI university guidance assistant that helps Ghanaian students navigate course selection and admission requirements. I always focus on user-centered design and technical excellence to solve real-world problems.</p>
-          
-          <div class="skills-showcase">
-            <div class="skill-tag">HTML5</div>
-            <div class="skill-tag">CSS3</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">React</div>
-            <div class="skill-tag">Figma</div>
-            <div class="skill-tag">GitHub</div>
-            <div class="skill-tag">Responsive Design</div>
-            <div class="skill-tag">UI/UX</div>
-            <div class="skill-tag">Accessibility</div>
-            <div class="skill-tag">Micro-interactions</div>
+
+        <!-- Resume Tabs -->
+        <div class="resume-container glass-panel mt-5">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="skills">
+              <i class="fas fa-tools"></i> Skills
+            </button>
+            <button class="tab-btn" data-tab="experience">
+              <i class="fas fa-briefcase"></i> Experience
+            </button>
+            <button class="tab-btn" data-tab="education">
+              <i class="fas fa-graduation-cap"></i> Education
+            </button>
           </div>
-          
-          <div class="tab-container">
-            <div class="tab-buttons">
-              <button class="tab-btn active" data-tab="skills">
-                <i class="fas fa-tools"></i>
-                Skills
-              </button>
-              <button class="tab-btn" data-tab="experience">
-                <i class="fas fa-briefcase"></i>
-                Experience
-              </button>
-              <button class="tab-btn" data-tab="education">
-                <i class="fas fa-graduation-cap"></i>
-                Education
-              </button>
-            </div>
-            
-            <div class="tab-content active" id="skills">
+
+          <div class="tab-content active" id="skills">
+            <div class="skills-grid">
               <div class="skill-item">
                 <div class="skill-info">
                   <span class="skill-name">Frontend Development</span>
                   <span class="skill-level">95%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-width="95"></div>
+                  <div class="skill-progress" style="width: 95%"></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -469,7 +211,7 @@
                   <span class="skill-level">90%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-width="90"></div>
+                  <div class="skill-progress" style="width: 90%"></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -478,7 +220,7 @@
                   <span class="skill-level">95%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-width="95"></div>
+                  <div class="skill-progress" style="width: 95%"></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -487,93 +229,57 @@
                   <span class="skill-level">85%</span>
                 </div>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-width="85"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Cross-Browser Compatibility</span>
-                  <span class="skill-level">90%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="90"></div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Performance Optimization</span>
-                  <span class="skill-level">85%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-width="85"></div>
+                  <div class="skill-progress" style="width: 85%"></div>
                 </div>
               </div>
             </div>
-            
-            <div class="tab-content" id="experience">
-              <div class="timeline">
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <h4>Frontend & UI/UX Designer (Intern — Remote)</h4>
-                    <p class="company">Glinax</p>
-                    <ul class="experience-details">
-                      <li>Interned as a frontend developer and UI/UX designer for the Glinax team (remote)</li>
-                      <li>Designed polished UI flows and high-fidelity mockups for product screens and user journeys</li>
-                      <li>Built interactive frontend components and translated designs into production-ready code</li>
-                    </ul>
-                    <span class="timeline-date">2024 - Present</span>
-                  </div>
+          </div>
+
+          <div class="tab-content" id="experience">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4>Frontend & UI/UX Designer (Intern — Remote)</h4>
+                  <p class="company">Glinax <span class="timeline-date">2024 - Present</span></p>
+                  <ul class="experience-details">
+                    <li>Interned as a frontend developer and UI/UX designer for the Glinax team (remote)</li>
+                    <li>Designed polished UI flows and high-fidelity mockups for product screens and user journeys</li>
+                    <li>Built interactive frontend components and translated designs into production-ready code</li>
+                  </ul>
                 </div>
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <h4>Frontend Interface Developer & UI Designer — AI University Assistant</h4>
-                    <p class="company">Glinax</p>
-                    <ul class="experience-details">
-                      <li>Built the frontend interface for an AI-powered university guidance chatbot for Ghanaian students</li>
-                      <li>Designed intuitive UI for course recommendations, cut-off points analysis, and program assessment features</li>
-                      <li>Created conversational UX that helps students gain in-depth knowledge of university courses and admission requirements</li>
-                      <li>Implemented responsive design and accessibility patterns for seamless mobile and desktop experience</li>
-                      <li>Developed interactive components for student assessment and personalized program recommendations</li>
-                    </ul>
-                    <span class="timeline-date">2025</span>
-                  </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4>Frontend Interface Developer & UI Designer</h4>
+                  <p class="company">Glinax AI University Assistant <span class="timeline-date">2025</span></p>
+                  <ul class="experience-details">
+                    <li>Built the frontend interface for an AI-powered university guidance chatbot</li>
+                    <li>Designed intuitive UI for course recommendations and cut-off points analysis</li>
+                    <li>Implemented responsive design and accessibility patterns</li>
+                  </ul>
                 </div>
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <h4>Frontend Developer — Great Dafco SHS (Website)</h4>
-                    <p class="company">Freelance / Contract</p>
-                    <ul class="experience-details">
-                      <li>Built the frontend of the official website for Great Dafco Senior High School</li>
-                      <li>Delivered a responsive, easy-to-navigate site that highlights school info, programs, and contact details</li>
-                      <li>Worked to ensure fast load times and cross-browser compatibility</li>
-                    </ul>
-                    <span class="timeline-date">2025</span>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <h4>Learning & Development</h4>
-                    <p class="company">GCTU</p>
-                    <ul class="experience-details">
-                      <li>Pursuing BSc Information Technology with focus on web development and software engineering</li>
-                      <li>Studying Java, Data Structures & Algorithms, Databases, and modern web technologies</li>
-                      <li>Building personal projects and contributing to open source initiatives</li>
-                    </ul>
-                    <span class="timeline-date">2024 - Present</span>
-                  </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4>Frontend Developer</h4>
+                  <p class="company">Great Dafco SHS (Freelance) <span class="timeline-date">2025</span></p>
+                  <ul class="experience-details">
+                    <li>Built the official website for Great Dafco Senior High School</li>
+                    <li>Delivered a responsive, easy-to-navigate site</li>
+                    <li>Ensured fast load times and cross-browser compatibility</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            
-            <div class="tab-content" id="education">
+          </div>
+
+          <div class="tab-content" id="education">
+            <div class="education-grid">
               <div class="education-item">
-                <div class="education-icon">
-                  <i class="fas fa-university"></i>
-                </div>
+                <div class="education-icon"><i class="fas fa-university"></i></div>
                 <div class="education-content">
                   <h4>GCTU</h4>
                   <p>BSc Information Technology</p>
@@ -581,9 +287,7 @@
                 </div>
               </div>
               <div class="education-item">
-                <div class="education-icon">
-                  <i class="fas fa-school"></i>
-                </div>
+                <div class="education-icon"><i class="fas fa-school"></i></div>
                 <div class="education-content">
                   <h4>Awudome SHS</h4>
                   <p>WASSCE Certificate</p>
@@ -591,9 +295,7 @@
                 </div>
               </div>
               <div class="education-item">
-                <div class="education-icon">
-                  <i class="fas fa-book"></i>
-                </div>
+                <div class="education-icon"><i class="fas fa-book"></i></div>
                 <div class="education-content">
                   <h4>Michel Camp</h4>
                   <p>Basic Education</p>
@@ -604,444 +306,208 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">My Services</h2>
-        <p class="section-subtitle">What I can do for you</p>
-      </div>
-      
-      <div class="services-grid">
-        <div class="service-card" data-aos="fade-up">
-          <div class="service-icon">
-            <i class="fas fa-laptop-code"></i>
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title center">My <span class="outline-text">Expertise</span></h2>
+        <div class="services-grid">
+          <div class="service-card glass-panel">
+            <i class="fas fa-code icon"></i>
+            <h3>Frontend Dev</h3>
+            <p>Pixel-perfect conversion of designs into high-performance code using React and modern CSS.</p>
           </div>
-          <h3>Web Design & Development</h3>
-          <p>I craft responsive, modern websites that deliver exceptional user experiences across all devices using cutting-edge web technologies and best practices.</p>
-          <ul class="service-features">
-            <li>Responsive Design</li>
-            <li>Modern UI/UX</li>
-            <li>Performance Optimization</li>
-            <li>Cross-browser Compatibility</li>
-          </ul>
-          <a href="#contact" class="service-btn">
-            <span>Get Started</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-icon">
-            <i class="fas fa-bullhorn"></i>
+          <div class="service-card glass-panel">
+            <i class="fas fa-layer-group icon"></i>
+            <h3>UI/UX Design</h3>
+            <p>Creating intuitive, accessible, and visually stunning user interfaces in Figma.</p>
           </div>
-          <h3>Digital Marketing & Strategy</h3>
-          <p>I develop comprehensive digital marketing strategies with compelling visual content and data-driven engagement approaches to maximize conversions and brand visibility.</p>
-          <ul class="service-features">
-            <li>Pinterest Marketing</li>
-            <li>Affiliate Strategies</li>
-            <li>Content Creation</li>
-            <li>Engagement Optimization</li>
-          </ul>
-          <a href="#contact" class="service-btn">
-            <span>Get Started</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-icon">
-            <i class="fas fa-robot"></i>
+          <div class="service-card glass-panel">
+            <i class="fas fa-rocket icon"></i>
+            <h3>Web Optimization</h3>
+            <p>Ensuring your digital presence loads fast and ranks high on search engines.</p>
           </div>
-          <h3>Technical Consulting</h3>
-          <p>I provide expert technical consulting services to help businesses optimize their digital presence, improve user experience, and implement modern web solutions.</p>
-          <ul class="service-features">
-            <li>Technical Strategy</li>
-            <li>Performance Optimization</li>
-            <li>Modern Web Standards</li>
-            <li>Best Practices Implementation</li>
-          </ul>
-          <a href="#contact" class="service-btn">
-            <span>Get Started</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-icon">
-            <i class="fas fa-palette"></i>
-          </div>
-          <h3>UI/UX Design</h3>
-          <p>I design intuitive, user-centered interfaces that seamlessly blend aesthetics with functionality, creating digital experiences that users love and businesses need.</p>
-          <ul class="service-features">
-            <li>User Interface Design</li>
-            <li>User Experience Research</li>
-            <li>Prototyping & Wireframing</li>
-            <li>Design Systems</li>
-          </ul>
-          <a href="#contact" class="service-btn">
-            <span>Get Started</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">My Work</h2>
-        <p class="section-subtitle">Projects I've built</p>
-      </div>
-      
-      <div class="portfolio-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="ai">AI</button>
-        <button class="filter-btn" data-filter="app">Apps</button>
-        <button class="filter-btn" data-filter="marketing">Marketing</button>
-        <button class="filter-btn" data-filter="UI/UX">UI/UX</button>
-      </div>
-      
-      <div class="portfolio-grid">
-        <div class="portfolio-item" data-category="marketing" data-aos="fade-up">
-          <div class="portfolio-image">
-            <img src="Images/Work.jpg" alt="Pinterest Affiliate Marketing Work showcasing fashion content and affiliate strategies" loading="lazy" width="600" height="400">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="https://pin.it/3diMpu0Jh" target="_blank" class="portfolio-link">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('pinterest')" aria-label="View project details for Pinterest Affiliate Marketing">
-                  <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Affiliate Pinterest</h3>
-            <p>Fashion styles and affiliate content marketing</p>
-            <div class="portfolio-tags">
-              <span class="tag">Marketing</span>
-              <span class="tag">Pinterest</span>
-              <span class="tag">Affiliate</span>
-            </div>
-          </div>
+    <!-- Portfolio -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="header-row">
+          <h2 class="section-title">Selected <span class="highlight">Works</span></h2>
+          <a href="https://github.com/Papiwrld" target="_blank" rel="noopener" class="link-arrow">
+            View GitHub <i class="fab fa-github"></i>
+          </a>
         </div>
-        
-        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="100">
-          <div class="portfolio-image">
-            <img src="Images/Fashion finesse deployed.png" alt="Fashion Finesse E-commerce Website with modern design and AI chatbot integration" loading="lazy" width="600" height="400">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="https://fashionfinessebypapiwrld.netlify.app/" target="_blank" class="portfolio-link">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('fashion')" aria-label="View project details for Fashion Finesse">
-                  <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Fashion Finesse</h3>
-            <p>Modern fashion e-commerce with AI chatbot and responsive design</p>
-            <div class="portfolio-tags">
-              <span class="tag">Web Design</span>
-              <span class="tag">E-commerce</span>
-              <span class="tag">AI Chatbot</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="portfolio-item" data-category="app" data-aos="fade-up" data-aos-delay="200">
-          <div class="portfolio-image">
-            <img src="Images/Weather App (2).png" alt="Weather Application with real-time forecasts and location-based weather data" loading="lazy" width="600" height="400">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="#" target="_blank" class="portfolio-link" id="weather-app-link">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('weather')" aria-label="View project details for Weather App">
-                  <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Weather App</h3>
-            <p>Real-time weather information with location-based forecasts and interactive UI</p>
-            <div class="portfolio-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">API Integration</span>
-              <span class="tag">Responsive Design</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="300">
-          <div class="portfolio-image">
-            <img src="Images/Great Dafco shs.png" alt="Great Dafco SHS Professional Frontend Website with modern design and responsive layout" loading="lazy" width="600" height="400">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="http://greatdafcoshs.onrender.com" target="_blank" class="portfolio-link" id="dafco-link">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('dafco')" aria-label="View project details for Great Dafco SHS">
-                  <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Great Dafco SHS</h3>
-            <p>Professional frontend website for Great Dafco Senior High School with modern design and responsive layout</p>
-            <div class="portfolio-tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Education</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="portfolio-item" data-category="UI/UX" data-aos="fade-up" data-aos-delay="400">
-          <div class="portfolio-image">
-            <div class="prototype-embed">
-              <iframe 
-                style="border: 1px solid rgba(0, 0, 0, 0.1);" 
-                width="100%" 
-                height="300" 
-                src="https://embed.figma.com/proto/l44x617RIEm7BjLFj5GVy1/Glinax-Chatbot?page-id=0%3A1&node-id=1-2&p=f&viewport=-383%2C491%2C0.55&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A2&embed-host=share" 
-                allowfullscreen
-                title="Ghana Student Chatbot UI/UX Prototype"
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Ghana Student Chatbot</h3>
-            <p>UI/UX design for an AI chatbot helping Ghanaian students with program recommendations and admission form sales</p>
-            <div class="portfolio-tags">
-              <span class="tag">UI/UX Design</span>
-              <span class="tag">Chatbot</span>
-              <span class="tag">Education</span>
-              <span class="tag">Prototype</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="500">
-          <div class="portfolio-image">
-            <img src="Images/Reciper Finder.png" alt="Recipe Finder - Modern Recipe & Cocktail Finder with multi-API search, dark/light theme, and PWA support" loading="lazy" width="600" height="400">
-            <div class="portfolio-overlay">
-              <div class="portfolio-links">
-                <a href="https://recipefinds.netlify.app/" target="_blank" class="portfolio-link">
-                  <i class="fas fa-external-link-alt"></i>
-                </a>
-                <a href="https://github.com/Papiwrld/Recipe-Finder" target="_blank" class="portfolio-link">
-                  <i class="fab fa-github"></i>
-                </a>
-                <button class="portfolio-info" onclick="openProjectModal('recipe-finder')" aria-label="View project details for Recipe Finder">
-                  <i class="fas fa-info-circle" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-content">
-            <h3>Recipe Finder</h3>
-            <p>Modern Recipe & Cocktail Finder built with Next.js and TypeScript. Features multi-API search, dark/light theme, PWA support, and smart filtering</p>
-            <div class="portfolio-tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">React</span>
-              <span class="tag">PWA</span>
-              <span class="tag">API Integration</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Let's work together</p>
-      </div>
-      
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
+        <div class="portfolio-grid">
+          <!-- Project 1 -->
+          <article class="project-card group tilt-card" data-tilt>
+            <div class="project-image browser-frame">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="Images/Reciper Finder.png" alt="Recipe Finder interface" loading="lazy">
+              </div>
+              <div class="overlay"></div>
             </div>
-            <div class="contact-details">
-              <h4>Email</h4>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Next.js</span>
+                <span>API</span>
+              </div>
+              <h3>Recipe Finder Pro</h3>
+              <a href="https://recipefinds.netlify.app/" target="_blank" rel="noopener" class="project-link">Visit
+                Site</a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card group tilt-card" data-tilt>
+            <div class="project-image browser-frame">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="Images/Fashion finesse deployed.png" alt="Fashion Finesse storefront" loading="lazy">
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>E-commerce</span>
+                <span>AI</span>
+              </div>
+              <h3>Fashion Finesse</h3>
+              <a href="https://fashionfinessebypapiwrld.netlify.app/" target="_blank" rel="noopener"
+                class="project-link">Visit Site</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card group tilt-card" data-tilt>
+            <div class="project-image browser-frame">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="Images/Weather App (2).png" alt="Weather App interface" loading="lazy">
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>API</span>
+              </div>
+              <h3>Global Weather</h3>
+              <a href="#" class="project-link">View Code</a>
+            </div>
+          </article>
+
+          <!-- Project 4: Great Dafco SHS -->
+          <article class="project-card group tilt-card" data-tilt>
+            <div class="project-image browser-frame">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="image-container">
+                <img src="Images/Great Dafco shs.png" alt="Great Dafco SHS Website" loading="lazy">
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <h3>Great Dafco SHS</h3>
+              <a href="#" class="project-link">Visit Site</a>
+            </div>
+          </article>
+
+          <!-- Project 5: Figma Chatbot -->
+          <article class="project-card group tilt-card" data-tilt>
+            <div class="project-image browser-frame">
+              <div class="browser-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="image-container figma-embed">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+                  src="https://embed.figma.com/proto/l44x617RIEm7BjLFj5GVy1/Glinax-Chatbot?node-id=1-2&starting-point-node-id=1%3A2&embed-host=share"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Figma</span>
+                <span>UI/UX</span>
+              </div>
+              <h3>AI Chatbot Design</h3>
+              <a href="https://www.figma.com/proto/l44x617RIEm7BjLFj5GVy1/Glinax-Chatbot?node-id=1-2&starting-point-node-id=1%3A2&embed-host=share"
+                target="_blank" class="project-link">Open Fullscreen</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-wrapper glass-panel">
+          <div class="contact-text">
+            <h2>Let's create something <br> <span class="text-gradient">extraordinary.</span></h2>
+            <p>Open for freelance projects and collaborations.</p>
+            <div class="socials-big">
               <a href="mailto:kwesieugene77@gmail.com">kwesieugene77@gmail.com</a>
+              <div class="icons">
+                <a href="https://github.com/Papiwrld" aria-label="GitHub" target="_blank" rel="noopener"><i
+                    class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/eugene-awagah-86068a341" aria-label="LinkedIn" target="_blank"
+                  rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/papiwrld_" aria-label="Instagram" target="_blank" rel="noopener"><i
+                    class="fab fa-instagram"></i></a>
+              </div>
             </div>
           </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Phone</h4>
-              <a href="tel:+233537270014">(+233) 0537270014</a>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h4>Location</h4>
-              <span>Ghana</span>
-            </div>
-          </div>
-          
-          <div class="social-links">
-            <h4>Follow Me</h4>
-            <div class="social-icons">
-              <a href="https://instagram.com/papiwrld_" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://linkedin.com/in/eugene-awagah-86068a341" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/Papiwrld" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://x.com/papiwrld_?s=21" target="_blank" aria-label="X (Twitter)">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="contact-form">
-          <form id="contact-form" novalidate role="form" aria-label="Contact form">
+
+          <form id="contact-form" class="minimal-form">
             <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" required aria-describedby="name-error" autocomplete="name" maxlength="100" placeholder="Enter your full name">
-              <span class="error-message" id="name-error" role="alert" aria-live="polite"></span>
+              <input type="text" id="name" required placeholder="Name">
             </div>
-            
             <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" required aria-describedby="email-error" autocomplete="email" maxlength="255" placeholder="your.email@example.com">
-              <span class="error-message" id="email-error" role="alert" aria-live="polite"></span>
+              <input type="email" id="email" required placeholder="Email">
             </div>
-            
             <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required aria-describedby="subject-error" maxlength="200" placeholder="What is this regarding?">
-              <span class="error-message" id="subject-error" role="alert" aria-live="polite"></span>
+              <textarea id="message" rows="4" required placeholder="Tell me about your project"></textarea>
             </div>
-            
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" rows="5" required aria-describedby="message-error" maxlength="1000" placeholder="Tell me about your project, timeline, and goals..."></textarea>
-              <span class="error-message" id="message-error" role="alert" aria-live="polite"></span>
-              <small class="char-count" aria-live="polite"><span id="message-count">0</span>/1000 characters</small>
-            </div>
-            
-            <!-- Hidden honeypot field for spam protection -->
-            <div class="form-group" style="display: none;" aria-hidden="true">
-              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-            </div>
-            
-            <button type="submit" class="btn btn-primary" aria-describedby="submit-status">
-              <span class="btn-text">Send Message</span>
-              <span class="btn-loading" aria-hidden="true">
-                <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
-                Sending...
-              </span>
-            </button>
-            
-            <div id="submit-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+            <button type="submit" class="btn btn-primary full-width">Send Message</button>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <img src="Images/Logo.png" alt="Eugene's Logo" class="footer-logo" width="50" height="50" loading="lazy">
-          <h3>Awagah Eugene Kwesi</h3>
-          <p>Frontend Developer & UI/UX Designer</p>
-        </div>
-        
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-services">
-          <h4>Services</h4>
-          <ul>
-            <li>Frontend Development</li>
-            <li>UI/UX Design</li>
-            <li>Digital Marketing</li>
-            <li>Technical Consulting</li>
-          </ul>
-        </div>
-        
-        <div class="footer-contact">
-          <h4>Contact Info</h4>
-          <p><i class="fas fa-envelope"></i> kwesieugene77@gmail.com</p>
-          <p><i class="fas fa-phone"></i> (+233) 0537270014</p>
-          <p><i class="fas fa-map-marker-alt"></i> Ghana</p>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Awagah Eugene Kwesi. All rights reserved.</p>
-        <p>Made with <i class="fas fa-heart"></i> in Ghana</p>
-      </div>
-    </div>
+  <footer class="simple-footer">
+    <p>&copy; 2025 Eugene Awagah. Crafted in Ghana.</p>
   </footer>
 
-  <!-- Project Modal -->
-  <div id="project-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
-    <div class="modal-content">
-      <button class="close-modal" aria-label="Close project details modal">&times;</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-
-  <!-- Scroll Progress Indicator -->
-  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Page scroll progress">
-    <div class="scroll-progress-bar"></div>
-  </div>
-
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
+
 </html>
