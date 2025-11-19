@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
 
     const preloader = document.getElementById('preloader');
+    const percentageNumber = document.querySelector('.percentage-number');
+
+    // Animate percentage counter
+    let count = 0;
+    const countInterval = setInterval(() => {
+        count += Math.floor(Math.random() * 15) + 5; // Random increment for realism
+        if (count > 100) count = 100;
+        if (percentageNumber) {
+            percentageNumber.textContent = count;
+        }
+        if (count >= 100) {
+            clearInterval(countInterval);
+        }
+    }, 200);
 
     // Show preloader for 4.5 seconds to allow full animation
     setTimeout(() => {

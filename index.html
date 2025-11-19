@@ -35,53 +35,107 @@
 <body class="dark-theme">
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Shadow Fighter Preloader -->
+  <!-- Shadow Fighter Preloader - Ultra Enhanced -->
   <div class="preloader" id="preloader">
     <!-- Stage Background -->
-    <div class="stage-background"></div>
+    <div class="stage-background">
+      <div class="stage-glow"></div>
+    </div>
 
-    <!-- Spotlight -->
+    <!-- Spotlight (follows figure) -->
     <div class="spotlight-effect"></div>
+    <div class="spotlight-beam"></div>
 
-    <!-- Shadow Fighter SVG -->
-    <svg class="shadow-fighter" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Floating Particles -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Footstep Ripples -->
+    <div class="footstep-ripple ripple-1"></div>
+    <div class="footstep-ripple ripple-2"></div>
+
+    <!-- Shadow Fighter SVG - Enhanced -->
+    <svg class="shadow-fighter" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Shadow/Reflection -->
+      <ellipse class="floor-shadow" cx="100" cy="290" rx="60" ry="8" opacity="0.3" />
+
       <!-- Head -->
-      <circle class="fighter-head" cx="100" cy="40" r="18" />
+      <circle class="fighter-head" cx="100" cy="45" r="22" />
+      <circle class="head-glow" cx="100" cy="45" r="22" opacity="0.3" />
 
-      <!-- Body -->
-      <rect class="fighter-body" x="88" y="58" width="24" height="50" rx="4" />
+      <!-- Neck -->
+      <rect class="fighter-neck" x="95" y="65" width="10" height="8" rx="2" />
+
+      <!-- Body/Torso -->
+      <path class="fighter-body"
+        d="M 85 73 Q 82 90, 80 110 L 80 140 Q 80 145, 85 145 L 115 145 Q 120 145, 120 140 L 120 110 Q 118 90, 115 73 Z" />
 
       <!-- Left Arm -->
       <g class="arm-left">
-        <rect x="82" y="65" width="8" height="45" rx="4" />
+        <rect x="75" y="80" width="10" height="50" rx="5" />
+        <rect x="73" y="125" width="12" height="45" rx="6" />
       </g>
 
       <!-- Right Arm (holding bag) -->
       <g class="arm-right">
-        <rect x="110" y="65" width="8" height="45" rx="4" />
+        <rect x="115" y="80" width="10" height="50" rx="5" />
+        <rect x="115" y="125" width="12" height="45" rx="6" />
       </g>
 
       <!-- Portfolio Bag -->
       <g class="portfolio-bag">
-        <rect x="115" y="95" width="22" height="18" rx="2" />
-        <line x1="120" y1="95" x2="132" y2="95" stroke-width="2" />
+        <!-- Bag handle -->
+        <path d="M 125 145 Q 128 140, 135 140 Q 142 140, 145 145" fill="none" stroke-width="3" />
+        <!-- Bag body -->
+        <rect x="120" y="145" width="30" height="25" rx="3" />
+        <line x1="125" y1="150" x2="145" y2="150" stroke-width="1.5" />
+        <line x1="125" y1="155" x2="145" y2="155" stroke-width="1.5" />
+        <!-- Bag glow -->
+        <rect class="bag-glow" x="120" y="145" width="30" height="25" rx="3" opacity="0.2" />
       </g>
 
       <!-- Left Leg -->
       <g class="leg-left">
-        <rect x="90" y="108" width="10" height="55" rx="5" />
+        <rect x="85" y="145" width="12" height="60" rx="6" />
+        <rect x="85" y="200" width="12" height="55" rx="6" />
       </g>
 
       <!-- Right Leg -->
       <g class="leg-right">
-        <rect x="100" y="108" width="10" height="55" rx="5" />
+        <rect x="103" y="145" width="12" height="60" rx="6" />
+        <rect x="103" y="200" width="12" height="55" rx="6" />
       </g>
     </svg>
 
+    <!-- Floating Portfolio Items -->
+    <div class="floating-items">
+      <div class="float-item item-1">💻</div>
+      <div class="float-item item-2">🎨</div>
+      <div class="float-item item-3">⚡</div>
+      <div class="float-item item-4">🚀</div>
+    </div>
+
     <!-- Loading Text -->
     <div class="preloader-text">
-      <h1 class="preloader-title">Eugene Awagah</h1>
+      <h1 class="preloader-title">Awagah Eugene Kwesi</h1>
       <p class="preloader-subtitle">Loading Portfolio...</p>
+
+      <!-- Percentage Counter -->
+      <div class="percentage-counter">
+        <span class="percentage-number">0</span><span class="percentage-symbol">%</span>
+      </div>
+
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
     </div>
   </div>
 

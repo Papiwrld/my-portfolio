@@ -63,7 +63,7 @@ body.custom-cursor-active button {
 }
 
 /* ========================================
-   SHADOW FIGHTER PRELOADER
+   SHADOW FIGHTER PRELOADER - ENHANCED
    ======================================== */
 
 .preloader {
@@ -72,14 +72,15 @@ body.custom-cursor-active button {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #0a0a0a;
+    background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0f 100%);
     z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     opacity: 1;
-    transition: opacity 0.8s ease;
+    transition: opacity 1s ease;
+    overflow: hidden;
 }
 
 .preloader.fade-out {
@@ -87,14 +88,16 @@ body.custom-cursor-active button {
     pointer-events: none;
 }
 
-/* Stage Background */
+/* Stage Background with Depth */
 .stage-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+    background:
+        linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%),
+        radial-gradient(ellipse at 50% 60%, rgba(0, 242, 234, 0.03) 0%, transparent 50%);
     z-index: 1;
 }
 
@@ -104,73 +107,385 @@ body.custom-cursor-active button {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 242, 234, 0.3), transparent);
+    height: 3px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 242, 234, 0.2) 20%,
+            rgba(0, 242, 234, 0.6) 50%,
+            rgba(0, 242, 234, 0.2) 80%,
+            transparent 100%);
+    box-shadow: 0 0 20px rgba(0, 242, 234, 0.5);
 }
 
-/* Dramatic Spotlight */
+/* Stage Glow Effect */
+.stage-glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 40%;
+    background: radial-gradient(ellipse at center, rgba(0, 242, 234, 0.1) 0%, transparent 70%);
+    filter: blur(60px);
+}
+
+/* Dramatic Spotlight - Follows Figure */
 .spotlight-effect {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
     background: radial-gradient(circle,
-            rgba(0, 242, 234, 0.4) 0%,
-            rgba(0, 242, 234, 0.2) 30%,
+            rgba(0, 242, 234, 0.5) 0%,
+            rgba(0, 242, 234, 0.3) 20%,
+            rgba(0, 242, 234, 0.1) 40%,
             transparent 70%);
-    filter: blur(40px);
+    filter: blur(50px);
     z-index: 2;
-    animation: spotlightPulse 3s ease-in-out infinite;
+    animation: spotlightFollow 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes spotlightPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.9;
-    }
+/* Spotlight Beam Effect */
+.spotlight-beam {
+    position: absolute;
+    width: 400px;
+    height: 800px;
+    top: -400px;
+    background: linear-gradient(180deg,
+            rgba(0, 242, 234, 0.15) 0%,
+            rgba(0, 242, 234, 0.08) 50%,
+            transparent 100%);
+    clip-path: polygon(40% 0%, 60% 0%, 70% 100%, 30% 100%);
+    filter: blur(20px);
+    z-index: 2;
+    animation: beamFollow 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Shadow Fighter SVG */
-.shadow-fighter {
-    width: 150px;
-    height: 225px;
-    z-index: 3;
-    filter: drop-shadow(0 10px 30px rgba(0, 242, 234, 0.6));
-    animation: walkOnStage 4s ease-in-out forwards;
-}
-
-@keyframes walkOnStage {
+@keyframes spotlightFollow {
     0% {
-        transform: translateX(-200px);
+        transform: translateX(-300px) scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: translateX(0) scale(1);
+    }
+
+    85% {
+        transform: translateX(0) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0) scale(1.2);
+        opacity: 1;
+    }
+}
+
+@keyframes beamFollow {
+    0% {
+        transform: translateX(-300px) rotate(-1deg);
+    }
+
+    70% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* ========================================
+   FLOATING PARTICLES
+   ======================================== */
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0, 242, 234, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 242, 234, 0.8);
+}
+
+.particle:nth-child(1) {
+    left: 30%;
+    animation: floatParticle 4s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    left: 45%;
+    animation: floatParticle 5s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.particle:nth-child(3) {
+    left: 55%;
+    animation: floatParticle 4.5s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(4) {
+    left: 65%;
+    animation: floatParticle 5.5s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.particle:nth-child(5) {
+    left: 35%;
+    animation: floatParticle 4.2s ease-in-out infinite;
+    animation-delay: 0.3s;
+}
+
+.particle:nth-child(6) {
+    left: 50%;
+    animation: floatParticle 4.8s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+.particle:nth-child(7) {
+    left: 40%;
+    animation: floatParticle 5.2s ease-in-out infinite;
+    animation-delay: 1.2s;
+}
+
+.particle:nth-child(8) {
+    left: 60%;
+    animation: floatParticle 4.6s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+@keyframes floatParticle {
+    0% {
+        bottom: 0%;
         opacity: 0;
+        transform: translateX(0) scale(1);
     }
 
     20% {
         opacity: 1;
     }
 
-    60% {
-        transform: translateX(0);
+    80% {
+        opacity: 1;
     }
 
     100% {
-        transform: translateX(0);
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(20px) scale(0.5);
     }
 }
 
-/* SVG Elements Styling */
+/* ========================================
+   FOOTSTEP RIPPLES
+   ======================================== */
+
+.footstep-ripple {
+    position: absolute;
+    bottom: 35%;
+    width: 80px;
+    height: 10px;
+    background: radial-gradient(ellipse, rgba(0, 242, 234, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.ripple-1 {
+    left: 40%;
+    animation: rippleEffect 0.8s ease-out 0.5s, rippleEffect 0.8s ease-out 1.5s, rippleEffect 0.8s ease-out 2.5s;
+}
+
+.ripple-2 {
+    left: 55%;
+    animation: rippleEffect 0.8s ease-out 1s, rippleEffect 0.8s ease-out 2s, rippleEffect 0.8s ease-out 3s;
+}
+
+@keyframes rippleEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+/* ========================================
+   PERCENTAGE COUNTER
+   ======================================== */
+
+.percentage-counter {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 1rem 0 0.5rem 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+}
+
+.percentage-number {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #00f2ea 0%, #00d4cc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.percentage-symbol {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+/* ========================================
+   FLOATING PORTFOLIO ITEMS
+   ======================================== */
+
+.floating-items {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.float-item {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0;
+    filter: drop-shadow(0 5px 15px rgba(0, 242, 234, 0.6));
+}
+
+.item-1 {
+    left: 48%;
+    top: 45%;
+    animation: floatFromBag 1.5s ease-out 3.8s forwards;
+    animation-delay: 3.8s;
+}
+
+.item-2 {
+    left: 52%;
+    top: 45%;
+    animation: floatFromBag 1.5s ease-out 3.8s forwards;
+    animation-delay: 4s;
+}
+
+.item-3 {
+    left: 45%;
+    top: 47%;
+    animation: floatFromBag 1.5s ease-out 3.8s forwards;
+    animation-delay: 4.2s;
+}
+
+.item-4 {
+    left: 55%;
+    top: 47%;
+    animation: floatFromBag 1.5s ease-out 3.8s forwards;
+    animation-delay: 4.4s;
+}
+
+@keyframes floatFromBag {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5) rotate(0deg);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-80px) scale(1) rotate(360deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: translateX(0) scale(1);
+    }
+
+    50% {
+        transform: translateX(0) scale(1.01);
+    }
+}
+
+@keyframes beamSway {
+
+    0%,
+    100% {
+        transform: translateX(-10px) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateX(10px) rotate(1deg);
+    }
+}
+
+/* Shadow Fighter SVG - Enhanced */
+.shadow-fighter {
+    width: 180px;
+    height: 288px;
+    z-index: 3;
+    filter: drop-shadow(0 20px 40px rgba(0, 242, 234, 0.4));
+    animation:
+        walkOnStage 5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+        breathe 3s ease-in-out 5s infinite;
+}
+
+@keyframes walkOnStage {
+    0% {
+        transform: translateX(-300px) scale(0.8);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(0) scale(1);
+    }
+
+    85% {
+        transform: translateX(0) scale(1.02);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* SVG Elements - Realistic Styling */
 .shadow-fighter .fighter-head,
+.shadow-fighter .fighter-neck,
 .shadow-fighter .fighter-body,
+.shadow-fighter path,
 .shadow-fighter rect,
 .shadow-fighter line {
-    fill: rgba(0, 242, 234, 0.9);
+    fill: rgba(0, 242, 234, 0.95);
     stroke: rgba(0, 242, 234, 1);
     stroke-width: 2;
 }
@@ -179,26 +494,54 @@ body.custom-cursor-active button {
     fill: none;
 }
 
-/* Arm Animations */
+/* Head Glow */
+.head-glow {
+    fill: rgba(0, 242, 234, 0.6);
+    stroke: none;
+    filter: blur(8px);
+}
+
+/* Floor Shadow */
+.floor-shadow {
+    fill: rgba(0, 0, 0, 0.4);
+    stroke: none;
+    animation: shadowPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes shadowPulse {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1, 0.9);
+        opacity: 0.4;
+    }
+}
+
+/* Arm Animations - More Natural + Victory Pose */
 .arm-left {
-    transform-origin: 86px 65px;
-    animation: swingArmLeft 0.8s ease-in-out infinite;
+    transform-origin: 80px 80px;
+    animation: swingArmLeft 1s ease-in-out 4;
 }
 
 .arm-right {
-    transform-origin: 114px 65px;
-    animation: swingArmRight 0.8s ease-in-out infinite;
+    transform-origin: 120px 80px;
+    animation: swingArmRight 1s ease-in-out 4, victoryRaise 0.8s ease-out 3.5s forwards;
 }
 
 @keyframes swingArmLeft {
 
     0%,
     100% {
-        transform: rotate(-15deg);
+        transform: rotate(-20deg);
     }
 
     50% {
-        transform: rotate(15deg);
+        transform: rotate(25deg);
     }
 }
 
@@ -206,34 +549,45 @@ body.custom-cursor-active button {
 
     0%,
     100% {
-        transform: rotate(10deg);
+        transform: rotate(15deg);
     }
 
     50% {
-        transform: rotate(-10deg);
+        transform: rotate(-15deg);
     }
 }
 
-/* Leg Animations */
+/* Victory Pose - Raises Bag Up */
+@keyframes victoryRaise {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        transform: rotate(-120deg);
+    }
+}
+
+/* Leg Animations - Realistic Walk */
 .leg-left {
-    transform-origin: 95px 108px;
-    animation: walkLegLeft 0.8s ease-in-out infinite;
+    transform-origin: 91px 145px;
+    animation: walkLegLeft 1s ease-in-out infinite;
 }
 
 .leg-right {
-    transform-origin: 105px 108px;
-    animation: walkLegRight 0.8s ease-in-out infinite;
+    transform-origin: 109px 145px;
+    animation: walkLegRight 1s ease-in-out infinite;
 }
 
 @keyframes walkLegLeft {
 
     0%,
     100% {
-        transform: rotate(-10deg);
+        transform: rotate(-12deg);
     }
 
     50% {
-        transform: rotate(10deg);
+        transform: rotate(12deg);
     }
 }
 
@@ -241,45 +595,74 @@ body.custom-cursor-active button {
 
     0%,
     100% {
-        transform: rotate(10deg);
+        transform: rotate(12deg);
     }
 
     50% {
-        transform: rotate(-10deg);
+        transform: rotate(-12deg);
     }
 }
 
-/* Portfolio Bag Animation */
+/* Portfolio Bag - Enhanced with Victory */
 .portfolio-bag {
-    transform-origin: 126px 95px;
-    animation: swingBag 0.8s ease-in-out infinite;
+    transform-origin: 135px 145px;
+    animation: swingBag 1s ease-in-out 4, bagVictory 0.8s ease-out 3.5s forwards;
+}
+
+.bag-glow {
+    fill: rgba(0, 242, 234, 0.8);
+    stroke: none;
+    filter: blur(6px);
+    animation: bagGlowPulse 3s ease-in-out 3.5s infinite;
 }
 
 @keyframes swingBag {
 
     0%,
     100% {
-        transform: rotate(-5deg);
+        transform: rotate(-8deg);
     }
 
     50% {
-        transform: rotate(5deg);
+        transform: rotate(8deg);
     }
 }
 
-/* Loading Text */
+@keyframes bagVictory {
+    0% {
+        transform: rotate(-8deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(-120deg) scale(1.2);
+    }
+}
+
+@keyframes bagGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Loading Text - Enhanced */
 .preloader-text {
     position: absolute;
-    bottom: 15%;
+    bottom: 12%;
     text-align: center;
     z-index: 4;
-    animation: fadeInText 1s ease-out 0.5s backwards;
+    animation: fadeInText 1.2s ease-out 0.8s backwards;
 }
 
 @keyframes fadeInText {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
 
     to {
@@ -290,41 +673,170 @@ body.custom-cursor-active button {
 
 .preloader-title {
     font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 700;
-    background: var(--gradient);
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00f2ea 0%, #00d4cc 50%, #00f2ea 100%);
+    background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.8rem 0;
+    letter-spacing: -0.02em;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .preloader-subtitle {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    letter-spacing: 3px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
+    font-weight: 300;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 250px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg,
+            #00f2ea 0%,
+            #00d4cc 25%,
+            #00f2ea 50%,
+            #00d4cc 75%,
+            #00f2ea 100%);
+    background-size: 200% 100%;
+    border-radius: 10px;
+    animation:
+        loadProgress 4.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+        shimmerBar 1.5s linear infinite;
+    box-shadow:
+        0 0 15px rgba(0, 242, 234, 0.8),
+        0 0 30px rgba(0, 242, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.loading-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+    animation: progressGlow 1s ease-in-out infinite;
+}
+
+@keyframes loadProgress {
+    0% {
+        width: 0%;
+    }
+
+    20% {
+        width: 15%;
+    }
+
+    40% {
+        width: 35%;
+    }
+
+    60% {
+        width: 60%;
+    }
+
+    80% {
+        width: 85%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes shimmerBar {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+@keyframes progressGlow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .shadow-fighter {
-        width: 120px;
-        height: 180px;
+        width: 140px;
+        height: 224px;
     }
 
     .spotlight-effect {
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
+    }
+
+    .spotlight-beam {
+        width: 300px;
     }
 
     .preloader-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .preloader-subtitle {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .loading-bar {
+        width: 150px;
     }
 }
 
