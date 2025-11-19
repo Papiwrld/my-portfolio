@@ -1523,6 +1523,17 @@ a:focus-visible {
         padding: 1.5rem;
         margin-top: 2rem;
     }
+
+    /* Center Portfolio Header on Mobile */
+    .header-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header-row .section-title {
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 640px) {
