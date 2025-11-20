@@ -207,6 +207,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- FORM SUBMISSION (Keep your existing logic here) ---
-    // [Insert your previous Google Sheets logic here]
+    // --- FORM SUBMISSION ---
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            formStatus.className = 'form-status';
+            formStatus.innerText = '';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.classList.add('success');
+                    formStatus.innerText = "Thanks for your message! I'll get back to you soon.";
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        formStatus.classList.add('error');
+                        formStatus.innerText = data.errors.map(error => error.message).join(", ");
+                    } else {
+                        formStatus.classList.add('error');
+                        formStatus.innerText = "Oops! There was a problem submitting your form.";
+                    }
+                }
+            } catch (error) {
+                formStatus.classList.add('error');
+                formStatus.innerText = "Oops! There was a problem submitting your form.";
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
 });

@@ -2085,4 +2085,38 @@ a:focus-visible {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+
+    .particles,
+    .footstep-ripple,
+    .spotlight-effect,
+    .spotlight-beam,
+    .aura-background,
+    .cursor-dot,
+    .cursor-outline {
+        display: none !important;
+    }
+
+    .tilt-card {
+        transform: none !important;
+    }
+
+    .magnetic {
+        transform: none !important;
+    }
+}
+
+/* Form Status */
+.form-status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 1.5em;
+}
+
+.form-status.success {
+    color: #00f2ea;
+}
+
+.form-status.error {
+    color: #ff0050;
 }
