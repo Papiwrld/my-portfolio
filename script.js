@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeMenu = () => {
         navMenu.classList.remove('active');
         navOverlay.classList.remove('active');
+        navToggle.classList.remove('active'); // Add this
         navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     };
@@ -149,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenu = () => {
         navMenu.classList.add('active');
         navOverlay.classList.add('active');
+        navToggle.classList.add('active'); // Add this
         navToggle.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     };

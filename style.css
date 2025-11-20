@@ -1775,13 +1775,35 @@ a:focus-visible {
 /* --- RESPONSIVE --- */
 @media (max-width: 992px) {
     .hero-title {
-        font-size: 4rem;
+        font-size: clamp(3rem, 6vw, 5rem);
     }
 
     .grid-about,
     .project-card,
     .contact-wrapper {
         grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .shadow-fighter {
+        transform: scale(0.8);
     }
 }
 
