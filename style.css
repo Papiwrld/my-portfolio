@@ -1773,6 +1773,8 @@ a:focus-visible {
 }
 
 /* --- RESPONSIVE --- */
+
+/* Tablets and below */
 @media (max-width: 992px) {
     .hero-title {
         font-size: clamp(3rem, 6vw, 5rem);
@@ -1789,24 +1791,7 @@ a:focus-visible {
     }
 }
 
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-
-    .hero-desc {
-        font-size: 1rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .shadow-fighter {
-        transform: scale(0.8);
-    }
-}
-
+/* Mobile devices - Medium to Large (up to 900px) */
 @media (max-width: 900px) {
     .nav-menu {
         position: fixed;
@@ -1905,7 +1890,17 @@ a:focus-visible {
     }
 }
 
+/* Mobile devices - Standard (up to 768px) */
 @media (max-width: 768px) {
+
+    /* Container and Spacing */
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section {
+        padding: 5rem 0;
+    }
 
     /* Navbar Fixes */
     .navbar {
@@ -1918,13 +1913,13 @@ a:focus-visible {
 
     .nav-container {
         justify-content: space-between;
+        padding: 0 1.5rem;
     }
 
     .nav-toggle {
         display: block;
         position: relative;
         z-index: 121;
-        /* Ensure above nav-menu */
     }
 
     .nav-menu {
@@ -1998,20 +1993,57 @@ a:focus-visible {
         transition-delay: 0.6s;
     }
 
+    /* Hero Section */
+    .hero {
+        padding-top: 100px;
+    }
+
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Tech Stack */
+    .tech-stack {
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .tech-stack span {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Cursor (hide on mobile) */
     .cursor-dot,
     .cursor-outline {
         display: none;
     }
 
-    .section {
-        padding: 4rem 0;
+    /* Typography */
+    .section-title {
+        font-size: 2.5rem;
     }
 
-    .project-card h3 {
-        font-size: 1.8rem;
+    .lead {
+        font-size: 1.1rem;
     }
 
-    /* --- MOBILE OPTIMIZATIONS --- */
+    /* Resume Container */
+    .resume-container {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
 
     /* Hide Scrollbar on Tabs */
     .tab-buttons {
@@ -2019,12 +2051,10 @@ a:focus-visible {
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        /* Firefox */
     }
 
     .tab-buttons::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari, Opera */
     }
 
     /* Stack Grids */
@@ -2047,21 +2077,7 @@ a:focus-visible {
         left: -2.1rem;
     }
 
-    /* Typography & Spacing */
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .lead {
-        font-size: 1.1rem;
-    }
-
-    .resume-container {
-        padding: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    /* Center Portfolio Header on Mobile */
+    /* Portfolio */
     .header-row {
         flex-direction: column;
         align-items: center;
@@ -2071,8 +2087,22 @@ a:focus-visible {
     .header-row .section-title {
         margin-bottom: 1rem;
     }
+
+    .project-card h3 {
+        font-size: 1.8rem;
+    }
+
+    /* Contact */
+    .contact-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .socials-big a {
+        font-size: 1.2rem;
+    }
 }
 
+/* Small Mobile devices (up to 640px) */
 @media (max-width: 640px) {
     .nav-overlay {
         display: none;
@@ -2082,18 +2112,359 @@ a:focus-visible {
         padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     }
 
-    .cursor-dot,
-    .cursor-outline {
-        display: none;
+    /* Container */
+    .container {
+        padding: 0 1.25rem;
     }
 
-    /* Hide custom cursor on touch */
     .section {
         padding: 4rem 0;
     }
 
+    /* Hero */
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem;
+    }
+
+    .hero-btns .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* About */
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Portfolio */
+    .project-card {
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
     .project-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    /* Contact */
+    .contact-text h2 {
+        font-size: 2rem;
+    }
+
+    .minimal-form input,
+    .minimal-form textarea {
+        font-size: 0.95rem;
+    }
+
+    /* Preloader */
+    .shadow-fighter {
+        transform: scale(0.75);
+    }
+
+    .preloader-title {
+        font-size: 2.5rem;
+    }
+
+    .preloader-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* Extra Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+
+    /* Container */
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 90vh;
+        padding-top: 80px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-desc {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-btns .btn {
+        padding: 0.85rem 1.3rem;
+        font-size: 0.9rem;
+    }
+
+    /* About */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+    }
+
+    .about-info p {
+        font-size: 0.9rem;
+    }
+
+    /* Floating Badges */
+    .floating-badge {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Tech Stack */
+    .tech-stack span {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    /* Resume Tabs */
+    .tab-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .resume-container {
+        padding: 1.25rem;
+    }
+
+    /* Timeline */
+    .timeline-content h4 {
+        font-size: 1rem;
+    }
+
+    .company {
+        font-size: 0.85rem;
+    }
+
+    .experience-details {
+        font-size: 0.85rem;
+    }
+
+    /* Education */
+    .education-item {
+        padding: 1.25rem;
+    }
+
+    .education-icon {
+        font-size: 1.5rem;
+    }
+
+    .education-content h4 {
+        font-size: 1rem;
+    }
+
+    /* Services */
+    .service-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .service-card .icon {
+        font-size: 1.75rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Portfolio */
+    .project-card {
+        padding: 1.25rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-tags span {
+        font-size: 0.75rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    /* Contact */
+    .contact-wrapper {
+        padding: 1.5rem;
+    }
+
+    .contact-text h2 {
         font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-text p {
+        font-size: 0.9rem;
+    }
+
+    .socials-big a {
+        font-size: 1rem;
+    }
+
+    .socials-big .icons {
+        font-size: 1.1rem;
+        gap: 1.25rem;
+    }
+
+    .minimal-form input,
+    .minimal-form textarea {
+        font-size: 0.9rem;
+        padding: 0.85rem 0;
+    }
+
+    .btn.full-width {
+        font-size: 0.9rem;
+        padding: 0.85rem;
+    }
+
+    /* Footer */
+    .simple-footer {
+        font-size: 0.85rem;
+        padding: 1.5rem;
+    }
+
+    /* Preloader */
+    .shadow-fighter {
+        transform: scale(0.65);
+        margin-bottom: 100px;
+    }
+
+    .preloader-title {
+        font-size: 2rem;
+    }
+
+    .preloader-subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+    }
+
+    .percentage-counter {
+        font-size: 1.25rem;
+    }
+
+    .percentage-number {
+        font-size: 1.75rem;
+    }
+
+    .loading-bar {
+        width: 200px;
+    }
+}
+
+/* Very Small Mobile (up to 375px - iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 0.85rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .contact-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .preloader-title {
+        font-size: 1.75rem;
+    }
+
+    .shadow-fighter {
+        transform: scale(0.6);
+    }
+}
+
+/* Extra Small Mobile (up to 320px - Very old devices) */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .hero-desc {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .preloader-title {
+        font-size: 1.6rem;
+    }
+
+    .shadow-fighter {
+        transform: scale(0.55);
+    }
+
+    .loading-bar {
+        width: 180px;
     }
 }
 
