@@ -205,9 +205,42 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add active class to clicked
             btn.classList.add('active');
             const tabId = btn.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+            const activeContent = document.getElementById(tabId);
+            activeContent.classList.add('active');
+
+            // Trigger animations if skills tab is active
+            if (tabId === 'skills') {
+                animateSkills();
+            }
         });
     });
+
+    // --- SKILL BAR ANIMATION ---
+    const animateSkills = () => {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        skillBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0'; // Reset to 0
+            setTimeout(() => {
+                bar.style.width = width; // Animate to target
+            }, 100);
+        });
+    };
+
+    // Initial check for skills animation
+    const skillsSection = document.getElementById('skills');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && skillsSection.classList.contains('active')) {
+                animateSkills();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
 
     // --- FORM SUBMISSION ---
     const contactForm = document.getElementById('contact-form');
