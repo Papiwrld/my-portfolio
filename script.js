@@ -165,6 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Close button inside menu
+        const navClose = document.getElementById('nav-close');
+        if (navClose) {
+            navClose.addEventListener('click', closeMenu);
+        }
+
         navOverlay.addEventListener('click', closeMenu);
         navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
     }
