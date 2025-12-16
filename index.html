@@ -20,7 +20,7 @@
   <meta name="twitter:description"
     content="Portfolio website by Awagah Eugene Kwesi featuring interactive work and services.">
   <meta name="twitter:image" content="https://papiwrld.github.io/Images/Eugene%20at%20the%20national%20theatre.jpg">
-  <link rel="icon" type="image/png" href="Images/Logo.png">
+
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,100 +35,42 @@
 <body class="dark-theme">
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Shadow Fighter Preloader - Ultra Enhanced -->
+  <!-- Terminal Preloader -->
   <div class="preloader" id="preloader">
-    <!-- Stage Background -->
-    <div class="stage-background">
-      <div class="stage-glow"></div>
-    </div>
-
-    <!-- Spotlight (follows figure) -->
-    <div class="spotlight-effect"></div>
-    <div class="spotlight-beam"></div>
-
-    <!-- Floating Particles -->
-    <div class="particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-
-    <!-- Footstep Ripples -->
-    <div class="footstep-ripple ripple-1"></div>
-    <div class="footstep-ripple ripple-2"></div>
-
-    <!-- Shadow Fighter SVG - Enhanced -->
-    <svg class="shadow-fighter" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
-      <!-- Shadow/Reflection -->
-      <ellipse class="floor-shadow" cx="100" cy="290" rx="60" ry="8" opacity="0.3" />
-
-      <!-- Head -->
-      <circle class="fighter-head" cx="100" cy="45" r="22" />
-      <circle class="head-glow" cx="100" cy="45" r="22" opacity="0.3" />
-
-      <!-- Neck -->
-      <rect class="fighter-neck" x="95" y="65" width="10" height="8" rx="2" />
-
-      <!-- Body/Torso -->
-      <path class="fighter-body"
-        d="M 85 73 Q 82 90, 80 110 L 80 140 Q 80 145, 85 145 L 115 145 Q 120 145, 120 140 L 120 110 Q 118 90, 115 73 Z" />
-
-      <!-- Left Arm -->
-      <g class="arm-left">
-        <rect x="75" y="80" width="10" height="50" rx="5" />
-        <rect x="73" y="125" width="12" height="45" rx="6" />
-      </g>
-
-      <!-- Right Arm (holding bag) -->
-      <g class="arm-right">
-        <rect x="115" y="80" width="10" height="50" rx="5" />
-        <rect x="115" y="125" width="12" height="45" rx="6" />
-      </g>
-
-      <!-- Portfolio Bag -->
-      <g class="portfolio-bag">
-        <!-- Bag handle -->
-        <path d="M 125 145 Q 128 140, 135 140 Q 142 140, 145 145" fill="none" stroke-width="3" />
-        <!-- Bag body -->
-        <rect x="120" y="145" width="30" height="25" rx="3" />
-        <line x1="125" y1="150" x2="145" y2="150" stroke-width="1.5" />
-        <line x1="125" y1="155" x2="145" y2="155" stroke-width="1.5" />
-        <!-- Bag glow -->
-        <rect class="bag-glow" x="120" y="145" width="30" height="25" rx="3" opacity="0.2" />
-      </g>
-
-      <!-- Left Leg -->
-      <g class="leg-left">
-        <rect x="85" y="145" width="12" height="60" rx="6" />
-        <rect x="85" y="200" width="12" height="55" rx="6" />
-      </g>
-
-      <!-- Right Leg -->
-      <g class="leg-right">
-        <rect x="103" y="145" width="12" height="60" rx="6" />
-        <rect x="103" y="200" width="12" height="55" rx="6" />
-      </g>
-    </svg>
-
-
-
-    <!-- Loading Text -->
-    <div class="preloader-text">
-      <h1 class="preloader-title">Awagah Eugene Kwesi</h1>
-      <p class="preloader-subtitle">Loading Portfolio...</p>
-
-      <!-- Percentage Counter -->
-      <div class="percentage-counter">
-        <span class="percentage-number">0</span><span class="percentage-symbol">%</span>
+    <div class="terminal-container">
+      <!-- Terminal Window -->
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-title">eugene@portfolio ~ </span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line" id="line1">
+            <span class="prompt">$</span>
+            <span class="command"></span>
+          </div>
+          <div class="terminal-line hidden" id="line2">
+            <span class="prompt">$</span>
+            <span class="command"></span>
+          </div>
+          <div class="terminal-line hidden" id="line3">
+            <span class="prompt">$</span>
+            <span class="command"></span>
+          </div>
+          <div class="terminal-line hidden" id="line4">
+            <span class="output success"></span>
+          </div>
+          <div class="terminal-line hidden" id="line5">
+            <span class="prompt">$</span>
+            <span class="command"></span>
+            <span class="cursor-blink">_</span>
+          </div>
+        </div>
       </div>
 
-      <div class="loading-bar">
-        <div class="loading-progress"></div>
+      <!-- Progress Bar -->
+      <div class="terminal-progress">
+        <div class="terminal-progress-bar"></div>
+        <span class="terminal-percentage">0%</span>
       </div>
     </div>
   </div>
@@ -212,7 +154,7 @@
             </div>
           </div>
           <div class="about-info">
-            <h2 class="section-title">Who <span class="highlight">I Am</span></h2>
+            <h2 class="section-title center">Who <span class="highlight">I Am</span></h2>
             <p class="lead">Professional Frontend Developer and UI/UX Designer.</p>
             <p>I specialize in creating responsive, accessible, and performant web interfaces, with expertise in
               turning designs into functional, high-quality code. My experience spans from freelance school
@@ -221,12 +163,13 @@
               UI/UX designer for Glinax.</p>
 
             <div class="tech-stack">
+              <span>HTML</span>
+              <span>CSS</span>
               <span>React</span>
               <span>TypeScript</span>
               <span>Next.js</span>
+              <span>Supabase</span>
               <span>Figma</span>
-              <span>GSAP</span>
-              <span>Node.js</span>
             </div>
           </div>
         </div>
@@ -398,9 +341,6 @@
           <article class="project-card group tilt-card" data-tilt>
             <div class="project-image browser-frame">
               <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
               </div>
               <div class="image-container">
                 <img src="Images/Virtual Lab.png" alt="Glinax Virtual Lab interface" loading="lazy">
@@ -422,9 +362,6 @@
           <article class="project-card group tilt-card" data-tilt>
             <div class="project-image browser-frame">
               <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
               </div>
               <div class="image-container">
                 <img src="Images/Reciper Finder.png" alt="Recipe Finder interface" loading="lazy">
@@ -446,9 +383,6 @@
           <article class="project-card group tilt-card" data-tilt>
             <div class="project-image browser-frame">
               <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
               </div>
               <div class="image-container">
                 <img src="Images/Fashion finesse deployed.png" alt="Fashion Finesse storefront" loading="lazy">
@@ -470,9 +404,6 @@
           <article class="project-card group tilt-card" data-tilt>
             <div class="project-image browser-frame">
               <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
               </div>
               <div class="image-container">
                 <img src="Images/Weather App (2).png" alt="Weather App interface" loading="lazy">
@@ -493,9 +424,6 @@
           <article class="project-card group tilt-card" data-tilt>
             <div class="project-image browser-frame">
               <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
               </div>
               <div class="image-container">
                 <img src="Images/Great Dafco shs.png" alt="Great Dafco SHS Website" loading="lazy">
@@ -512,31 +440,7 @@
             </div>
           </article>
 
-          <!-- Project 5: Figma Chatbot -->
-          <article class="project-card group tilt-card" data-tilt>
-            <div class="project-image browser-frame">
-              <div class="browser-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-              </div>
-              <div class="image-container figma-embed">
-                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
-                  src="https://embed.figma.com/proto/l44x617RIEm7BjLFj5GVy1/Glinax-Chatbot?node-id=1-2&starting-point-node-id=1%3A2&embed-host=share"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="overlay"></div>
-            </div>
-            <div class="project-content">
-              <div class="project-tags">
-                <span>Figma</span>
-                <span>UI/UX</span>
-              </div>
-              <h3>AI Chatbot Design</h3>
-              <a href="https://www.figma.com/proto/l44x617RIEm7BjLFj5GVy1/Glinax-Chatbot?node-id=1-2&starting-point-node-id=1%3A2&embed-host=share"
-                target="_blank" class="project-link">Open Fullscreen</a>
-            </div>
-          </article>
+
         </div>
       </div>
     </section>
@@ -563,12 +467,17 @@
             </div>
           </div>
 
-          <form id="contact-form" class="minimal-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form id="contact-form" class="minimal-form"
+            action="https://script.google.com/macros/s/AKfycbxnYt3wcwP7aMEpFs8sc26h8QxOuxTAclc6yIoMkxqaIEU0NXKuAdy2PH1ZkuEuH4c/exec"
+            method="POST">
             <div class="form-group">
               <input type="text" id="name" name="name" required placeholder="Name">
             </div>
             <div class="form-group">
               <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="text" id="subject" name="subject" required placeholder="Subject">
             </div>
             <div class="form-group">
               <textarea id="message" name="message" rows="4" required

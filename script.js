@@ -1,35 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ========================================
-    // SHADOW FIGHTER PRELOADER
+    // TERMINAL PRELOADER
     // ========================================
 
     const preloader = document.getElementById('preloader');
-    const percentageNumber = document.querySelector('.percentage-number');
+    const percentageEl = document.querySelector('.terminal-percentage');
+
+    // Terminal commands to type
+    const commands = [
+        { line: 'line1', text: 'npm install portfolio-skills', delay: 0 },
+        { line: 'line2', text: 'loading react typescript figma...', delay: 800 },
+        { line: 'line3', text: 'initializing creativity engine...', delay: 1600 },
+        { line: 'line4', text: '✓ Portfolio ready!', delay: 2400, isOutput: true },
+        { line: 'line5', text: 'eugene.launch()', delay: 3200 }
+    ];
+
+    // Typing effect function
+    function typeText(element, text, speed = 50) {
+        let i = 0;
+        return new Promise(resolve => {
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    resolve();
+                }
+            }, speed);
+        });
+    }
+
+    // Run terminal animation
+    commands.forEach(cmd => {
+        setTimeout(() => {
+            const lineEl = document.getElementById(cmd.line);
+            if (lineEl) {
+                lineEl.classList.remove('hidden');
+                const textEl = lineEl.querySelector(cmd.isOutput ? '.output' : '.command');
+                if (textEl) typeText(textEl, cmd.text, 30);
+            }
+        }, cmd.delay);
+    });
 
     // Animate percentage counter
     let count = 0;
     const countInterval = setInterval(() => {
-        count += Math.floor(Math.random() * 15) + 5; // Random increment for realism
+        count += Math.floor(Math.random() * 8) + 3;
         if (count > 100) count = 100;
-        if (percentageNumber) {
-            percentageNumber.textContent = count;
+        if (percentageEl) {
+            percentageEl.textContent = count + '%';
         }
         if (count >= 100) {
             clearInterval(countInterval);
         }
-    }, 200);
+    }, 150);
 
-    // Show preloader for 4.5 seconds to allow full animation
+    // Hide preloader after animation
     setTimeout(() => {
         if (preloader) {
             preloader.classList.add('fade-out');
-            // Remove from DOM after fade completes
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 800);
         }
-    }, 4500);
+    }, 4000);
 
     // --- CUSTOM CURSOR ---
     const cursorDot = document.querySelector('[data-cursor-dot]');
@@ -265,31 +301,41 @@ document.addEventListener('DOMContentLoaded', () => {
             formStatus.innerText = '';
 
             try {
+                // Convert to URLSearchParams for Google Apps Script compatibility
+                const data = new URLSearchParams();
+                for (const pair of formData) {
+                    data.append(pair[0], pair[1]);
+                }
+
                 const response = await fetch(contactForm.action, {
-                    method: contactForm.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    method: 'POST',
+                    body: data,
                 });
 
+                // Google Apps Script returns a JSON response, but since it's on a different domain,
+                // fetch might return an opaque response or throw a CORS error if not handled perfectly.
+                // However, the script we provided returns accessible JSON.
                 if (response.ok) {
-                    formStatus.classList.add('success');
-                    formStatus.innerText = "Thanks for your message! I'll get back to you soon.";
-                    contactForm.reset();
-                } else {
-                    const data = await response.json();
-                    if (Object.hasOwnProperty.call(data, 'errors')) {
-                        formStatus.classList.add('error');
-                        formStatus.innerText = data.errors.map(error => error.message).join(", ");
+                    // Sometimes response.ok is true even if the script failed logic but returned 200.
+                    // Let's try to parse.
+                    const resData = await response.json();
+                    if (resData.result === 'success') {
+                        formStatus.classList.add('success');
+                        formStatus.innerText = "Thanks for your message! I'll get back to you soon.";
+                        contactForm.reset();
                     } else {
-                        formStatus.classList.add('error');
-                        formStatus.innerText = "Oops! There was a problem submitting your form.";
+                        // Log the real Google Script error to console
+                        console.error('Google Script Error:', JSON.stringify(resData.error));
+                        throw new Error('Script returned error - check console');
                     }
+                } else {
+                    throw new Error('Network response was not ok');
                 }
             } catch (error) {
+                console.error('Form submission error:', error);
+
                 formStatus.classList.add('error');
-                formStatus.innerText = "Oops! There was a problem submitting your form.";
+                formStatus.innerText = "Form error. Did you run 'intialSetup' in Apps Script?";
             } finally {
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
